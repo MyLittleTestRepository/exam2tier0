@@ -2,3 +2,4 @@
 /.idea
 /bitrix
 /upload/tmp
+*test.php
