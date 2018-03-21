@@ -7,9 +7,6 @@ IncludeTemplateLangFile(__FILE__);
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <?$APPLICATION->ShowHead();?>
-    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/include/jquery-1.8.2.min.js');?>
-    <?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/include/slides.min.jquery.js');?>
-	<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/include/style.css');?>
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 

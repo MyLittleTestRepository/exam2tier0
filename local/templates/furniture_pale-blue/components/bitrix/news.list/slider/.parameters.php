@@ -22,5 +22,15 @@ $arTemplateParameters = array(
 		"TYPE" => "CHECKBOX",
 		"DEFAULT" => "Y",
 	),
+	"PREVIEW_PIC_W" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_PREVIEW_PIC_W"),
+		"TYPE" => "STRING",
+		"DEFAULT" => "40",
+	),
+	"PREVIEW_PIC_H" => Array(
+		"NAME" => GetMessage("T_IBLOCK_DESC_NEWS_PREVIEW_PIC_H"),
+		"TYPE" => "STRING",
+		"DEFAULT" => "40",
+	),
 );
 ?>

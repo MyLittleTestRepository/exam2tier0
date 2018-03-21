@@ -2,4 +2,5 @@
 /.idea
 /bitrix
 /upload/tmp
-*test.php
+/upload/resize_cache
+/**/test.php
