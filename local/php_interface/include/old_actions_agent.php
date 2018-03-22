@@ -6,7 +6,7 @@ function oldActionCheck()
 
 		//query
 		$arSelect = Array("ID", "NAME", "DATE_ACTIVE_TO");
-		$arFilter = Array("IBLOCK_ID" => IBCLOCK_ACTIONS_ID, "!ACTIVE_DATE" => "Y", "ACTIVE" => "Y");
+		$arFilter = Array("IBLOCK_ID" => INIT_CONST['IB_ACT_ID'], "!ACTIVE_DATE" => "Y", "ACTIVE" => "Y");
 		$res = CIBlockElement::GetList('', $arFilter, '', '', $arSelect);
 
 		//calc

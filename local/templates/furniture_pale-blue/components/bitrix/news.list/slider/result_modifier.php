@@ -21,7 +21,7 @@ foreach ($arResult['ITEMS'] as $arItem)
 
 
 //Настраиваем фильтры
-$arFilter = array("IBLOCK_ID" => IBCLOCK_CAT_ID,
+$arFilter = array("IBLOCK_ID" => INIT_CONST['IB_CAT_ID'],
                   "ACTIVE"    => "Y",
                   "ID"        => $arID);
 

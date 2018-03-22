@@ -32,7 +32,7 @@ CREATE TABLE `b_admin_notify` (
   `NOTIFY_TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'M',
   PRIMARY KEY (`ID`),
   KEY `IX_AD_TAG` (`TAG`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `b_admin_notify` (
 
 LOCK TABLES `b_admin_notify` WRITE;
 /*!40000 ALTER TABLE `b_admin_notify` DISABLE KEYS */;
+INSERT INTO `b_admin_notify` VALUES (1,'MAIN','SITE_CHECKER','Обнаружены ошибки в работе сайта. <a href=\"/bitrix/admin/site_checker.php?lang=ru&start_test=Y\">Проверить и исправить.</a>','Y','N','M');
 /*!40000 ALTER TABLE `b_admin_notify` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +96,7 @@ CREATE TABLE `b_agent` (
   KEY `ix_act_next_exec` (`ACTIVE`,`NEXT_EXEC`),
   KEY `ix_agent_user_id` (`USER_ID`),
   KEY `ix_agent_name` (`NAME`(100))
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +105,7 @@ CREATE TABLE `b_agent` (
 
 LOCK TABLES `b_agent` WRITE;
 /*!40000 ALTER TABLE `b_agent` DISABLE KEYS */;
-INSERT INTO `b_agent` VALUES (1,'main',100,'CEvent::CleanUpAgent();','Y','2018-03-21 16:43:06','2018-03-22 16:43:06',NULL,86400,'N',NULL,'N'),(2,'main',100,'CUser::CleanUpHitAuthAgent();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(3,'main',100,'CCaptchaAgent::DeleteOldCaptcha(3600);','Y','2018-03-22 08:18:54','2018-03-22 09:18:54',NULL,3600,'N',NULL,'N'),(4,'main',100,'CUndo::CleanUpOld();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(5,'main',100,'CUser::AuthActionsCleanUpAgent();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(6,'main',100,'CSiteCheckerTest::CommonTest();','Y','2018-03-21 08:20:03','2018-03-22 08:20:03','2018-03-22 08:37:58',86400,'N',NULL,'Y'),(7,'main',100,'\\Bitrix\\Main\\Analytics\\CounterDataTable::submitData();','Y','2018-03-22 08:18:55','2018-03-22 08:19:55','2018-03-22 08:37:58',60,'N',NULL,'N'),(8,'forum',100,'CForumStat::CleanUp();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(9,'forum',100,'CForumFiles::CleanUp();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(10,'search',10,'CSearchSuggest::CleanUpAgent();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(11,'search',10,'CSearchStatistic::CleanUpAgent();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(12,'security',100,'CSecuritySession::CleanUpAgent();','Y','2018-03-22 08:18:55','2018-03-22 08:48:55',NULL,1800,'N',NULL,'N'),(13,'security',100,'CSecurityIPRule::CleanUpAgent();','Y','2018-03-22 08:18:56','2018-03-22 09:18:56',NULL,3600,'N',NULL,'N'),(14,'seo',100,'Bitrix\\Seo\\Engine\\YandexDirect::updateAgent();','Y','2018-03-22 08:18:56','2018-03-22 09:18:56',NULL,3600,'N',NULL,'N'),(15,'seo',100,'Bitrix\\Seo\\Adv\\LogTable::clean();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(16,'seo',100,'Bitrix\\Seo\\Adv\\Auto::checkQuantityAgent();','Y','2018-03-22 08:18:56','2018-03-22 09:18:56',NULL,3600,'N',NULL,'N'),(17,'subscribe',100,'CSubscription::CleanUp();','Y','2018-03-22 08:18:57','2018-03-23 03:00:00',NULL,86400,'Y',NULL,'N'),(28,'main',0,'oldActionCheck();','Y',NULL,'2018-03-22 16:58:00',NULL,86400,'N',NULL,'N');
+INSERT INTO `b_agent` VALUES (1,'main',100,'CEvent::CleanUpAgent();','Y','2018-03-21 16:43:06','2018-03-22 16:43:06',NULL,86400,'N',NULL,'N'),(2,'main',100,'CUser::CleanUpHitAuthAgent();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(3,'main',100,'CCaptchaAgent::DeleteOldCaptcha(3600);','Y','2018-03-22 09:19:54','2018-03-22 10:19:54',NULL,3600,'N',NULL,'N'),(4,'main',100,'CUndo::CleanUpOld();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(5,'main',100,'CUser::AuthActionsCleanUpAgent();','Y','2018-03-21 16:43:07','2018-03-22 16:43:07',NULL,86400,'N',NULL,'N'),(6,'main',100,'CSiteCheckerTest::CommonTest();','Y','2018-03-22 08:54:51','2018-03-23 08:54:51',NULL,86400,'N',NULL,'N'),(7,'main',100,'\\Bitrix\\Main\\Analytics\\CounterDataTable::submitData();','Y','2018-03-22 10:11:25','2018-03-22 10:12:25',NULL,60,'N',NULL,'N'),(8,'forum',100,'CForumStat::CleanUp();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(9,'forum',100,'CForumFiles::CleanUp();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(10,'search',10,'CSearchSuggest::CleanUpAgent();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(11,'search',10,'CSearchStatistic::CleanUpAgent();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(12,'security',100,'CSecuritySession::CleanUpAgent();','Y','2018-03-22 09:55:59','2018-03-22 10:25:59',NULL,1800,'N',NULL,'N'),(13,'security',100,'CSecurityIPRule::CleanUpAgent();','Y','2018-03-22 09:19:54','2018-03-22 10:19:54',NULL,3600,'N',NULL,'N'),(14,'seo',100,'Bitrix\\Seo\\Engine\\YandexDirect::updateAgent();','Y','2018-03-22 09:19:55','2018-03-22 10:19:55',NULL,3600,'N',NULL,'N'),(15,'seo',100,'Bitrix\\Seo\\Adv\\LogTable::clean();','Y','2018-03-21 16:43:08','2018-03-22 16:43:08',NULL,86400,'N',NULL,'N'),(16,'seo',100,'Bitrix\\Seo\\Adv\\Auto::checkQuantityAgent();','Y','2018-03-22 09:19:55','2018-03-22 10:19:55',NULL,3600,'N',NULL,'N'),(17,'subscribe',100,'CSubscription::CleanUp();','Y','2018-03-22 08:18:57','2018-03-23 03:00:00',NULL,86400,'Y',NULL,'N'),(28,'main',0,'oldActionCheck();','Y',NULL,'2018-03-22 16:58:00',NULL,86400,'N',NULL,'N'),(32,'main',100,'CEventLog::CleanUpAgent();','Y','2018-03-22 10:09:16','2018-03-23 10:09:16',NULL,86400,'N',NULL,'N');
 /*!40000 ALTER TABLE `b_agent` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -192,7 +193,7 @@ CREATE TABLE `b_bitrixcloud_option` (
 
 LOCK TABLES `b_bitrixcloud_option` WRITE;
 /*!40000 ALTER TABLE `b_bitrixcloud_option` DISABLE KEYS */;
-INSERT INTO `b_bitrixcloud_option` VALUES (1,'backup_quota',0,'0','0'),(2,'backup_total_size',0,'0','0'),(3,'backup_last_backup_time',0,'0','1521466920'),(4,'monitoring_expire_time',0,'0','1521698388');
+INSERT INTO `b_bitrixcloud_option` VALUES (1,'backup_quota',0,'0','0'),(2,'backup_total_size',0,'0','0'),(3,'backup_last_backup_time',0,'0','1521466920'),(4,'monitoring_expire_time',0,'0','1521704238');
 /*!40000 ALTER TABLE `b_bitrixcloud_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -760,7 +761,7 @@ CREATE TABLE `b_cache_tag` (
 
 LOCK TABLES `b_cache_tag` WRITE;
 /*!40000 ALTER TABLE `b_cache_tag` DISABLE KEYS */;
-INSERT INTO `b_cache_tag` VALUES (NULL,NULL,'0:1521695946','**'),('s1','/e25','/s1/bitrix/menu.sections/06f','iblock_id_2'),('s1','/e25','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/e25','/s1/bitrix/news.list/06f','iblock_id_1'),('s1','/e25','/s1/bitrix/furniture.catalog.random/06f','iblock_id_2'),('s1','/e25','/s1/bitrix/furniture.catalog.index/e25','iblock_id_2'),('s1','/e25','/s1/bitrix/furniture.catalog.index/e25','iblock_id_3'),('s1','/bf6','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/bf6','/s1/bitrix/furniture.catalog.random/06f','iblock_id_2'),('s1','/bf6','/s1/bitrix/menu.sections/06f','iblock_id_2'),('s1','/bf6','/s1/bitrix/news.list/06f','iblock_id_1'),('s1','/6f8','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/6f8','/s1/bitrix/menu.sections/6f8','iblock_id_2');
+INSERT INTO `b_cache_tag` VALUES (NULL,NULL,'0:1521702556','**'),('s1','/e25','/s1/bitrix/menu.sections/06f','iblock_id_2'),('s1','/e25','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/e25','/s1/bitrix/news.list/06f','iblock_id_1'),('s1','/e25','/s1/bitrix/furniture.catalog.random/06f','iblock_id_2'),('s1','/e25','/s1/bitrix/furniture.catalog.index/e25','iblock_id_2'),('s1','/e25','/s1/bitrix/furniture.catalog.index/e25','iblock_id_3'),('s1','/bf6','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/bf6','/s1/bitrix/furniture.catalog.random/06f','iblock_id_2'),('s1','/bf6','/s1/bitrix/menu.sections/06f','iblock_id_2'),('s1','/bf6','/s1/bitrix/news.list/06f','iblock_id_1'),('s1','/6f8','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/6f8','/s1/bitrix/menu.sections/6f8','iblock_id_2'),('s1','/315','/s1/bitrix/menu/06f','bitrix:menu'),('s1','/315','/s1/bitrix/furniture.catalog.random/06f','iblock_id_2'),('s1','/e25','/s1/bitrix/news.list/e25','iblock_id_5'),('s1','/e25','/s1/bitrix/news.list/e25','iblock_id_2');
 /*!40000 ALTER TABLE `b_cache_tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1202,7 +1203,7 @@ CREATE TABLE `b_event` (
 
 LOCK TABLES `b_event` WRITE;
 /*!40000 ALTER TABLE `b_event` DISABLE KEYS */;
-INSERT INTO `b_event` VALUES (1,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:43:08','2018-03-21 16:43:09','Y','Y','ru'),(2,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:46:23','2018-03-21 16:46:23','Y','Y','ru'),(3,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:46:46','2018-03-21 16:47:03','Y','Y','ru'),(4,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:19:\"averin@intaro.email\";s:5:\"COUNT\";i:2;}','2018-03-22 08:30:34','2018-03-22 08:30:35','Y','Y','ru'),(5,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:19:\"averin@intaro.email\";s:5:\"COUNT\";i:2;}','2018-03-22 08:30:37',NULL,'N','Y','ru');
+INSERT INTO `b_event` VALUES (1,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:43:08','2018-03-21 16:43:09','Y','Y','ru'),(2,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:46:23','2018-03-21 16:46:23','Y','Y','ru'),(3,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:12:\"admin@ad.min\";s:5:\"COUNT\";i:2;}','2018-03-21 16:46:46','2018-03-21 16:47:03','Y','Y','ru'),(4,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:19:\"averin@intaro.email\";s:5:\"COUNT\";i:2;}','2018-03-22 08:30:34','2018-03-22 08:30:35','Y','Y','ru'),(5,'OLD_ACTIONS',NULL,'s1','a:2:{s:8:\"EMAIL_TO\";s:19:\"averin@intaro.email\";s:5:\"COUNT\";i:2;}','2018-03-22 08:30:37','2018-03-22 09:08:52','Y','Y','ru');
 /*!40000 ALTER TABLE `b_event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1254,7 +1255,7 @@ CREATE TABLE `b_event_log` (
   PRIMARY KEY (`ID`),
   KEY `ix_b_event_log_time` (`TIMESTAMP_X`),
   KEY `ix_b_event_log_audit_type` (`AUDIT_TYPE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1263,7 +1264,7 @@ CREATE TABLE `b_event_log` (
 
 LOCK TABLES `b_event_log` WRITE;
 /*!40000 ALTER TABLE `b_event_log` DISABLE KEYS */;
-INSERT INTO `b_event_log` VALUES (1,'2018-03-20 05:13:37','WARNING','SITE_CHECKER_ERROR','main','CSiteCheckerTest::CommonTest();','-','-','/?finish=&back_url_admin=%2Fbitrix%2Fadmin%2Fsite_checker.php%3Flang%3Dru','s1',NULL,NULL,''),(2,'2018-03-20 08:29:48','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(3,'2018-03-20 08:30:06','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(4,'2018-03-20 08:30:23','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(5,'2018-03-20 08:35:15','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(6,'2018-03-20 10:03:02','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(7,'2018-03-20 10:03:55','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(8,'2018-03-20 10:16:19','UNKNOWN','PAGE_ADD','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_new.php?bxsender=core_window_cdialog&lang=ru&site=s1&templateID=furniture_pale-blue&path=%2F&back_url=%2F%3Fbitrix_include_areas%3DY%26clear_cache%3DY&siteTemplateId=furniture_pale-blue',NULL,1,NULL,'a:1:{s:4:\"path\";s:8:\"test.php\";}'),(9,'2018-03-20 10:16:55','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:8:\"test.php\";}'),(10,'2018-03-20 11:54:56','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(11,'2018-03-20 11:55:12','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(12,'2018-03-20 11:55:29','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(13,'2018-03-20 12:28:37','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(14,'2018-03-20 12:29:32','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(15,'2018-03-20 12:29:41','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(16,'2018-03-20 12:30:30','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(17,'2018-03-20 13:55:04','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(18,'2018-03-20 13:55:41','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(19,'2018-03-21 05:20:03','WARNING','SITE_CHECKER_ERROR','main','CSiteCheckerTest::CommonTest();','-','-','/?bitrix_include_areas=N&clear_cache=Y','s1',NULL,NULL,''),(20,'2018-03-21 11:53:00','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(21,'2018-03-21 12:02:56','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:36;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Alladin\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(22,'2018-03-21 12:03:02','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(23,'2018-03-21 12:03:11','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:36;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Alladin\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(24,'2018-03-21 12:03:28','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:37;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Palermo\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(25,'2018-03-21 12:15:02','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(26,'2018-03-21 12:42:49','SECURITY','OLD_ACTIONS','iblock','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Есть устаревшие, но еще активные акции'),(27,'2018-03-21 12:43:44','SECURITY','OLD_ACTIONS','iblock','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Есть устаревшие, но еще активные акции: 2 шт.'),(28,'2018-03-21 12:45:38','SECURITY','OLD_ACTIONS','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(29,'2018-03-21 12:50:59','SECURITY','OLD_ACTIONS','iblock','actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(30,'2018-03-21 12:51:42','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(31,'2018-03-21 13:07:29','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(32,'2018-03-21 13:07:50','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(33,'2018-03-21 13:09:20','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(34,'2018-03-21 13:09:47','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(35,'2018-03-21 13:10:02','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(36,'2018-03-21 13:10:28','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(37,'2018-03-21 13:14:31','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(38,'2018-03-21 13:21:31','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(39,'2018-03-21 13:25:01','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(40,'2018-03-21 13:26:12','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(41,'2018-03-21 13:43:08','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(42,'2018-03-21 13:46:22','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(43,'2018-03-21 13:46:46','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(44,'2018-03-22 05:30:34','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(45,'2018-03-22 05:30:37','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.');
+INSERT INTO `b_event_log` VALUES (1,'2018-03-20 05:13:37','WARNING','SITE_CHECKER_ERROR','main','CSiteCheckerTest::CommonTest();','-','-','/?finish=&back_url_admin=%2Fbitrix%2Fadmin%2Fsite_checker.php%3Flang%3Dru','s1',NULL,NULL,''),(2,'2018-03-20 08:29:48','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(3,'2018-03-20 08:30:06','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(4,'2018-03-20 08:30:23','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(5,'2018-03-20 08:35:15','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(6,'2018-03-20 10:03:02','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(7,'2018-03-20 10:03:55','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(8,'2018-03-20 10:16:19','UNKNOWN','PAGE_ADD','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_new.php?bxsender=core_window_cdialog&lang=ru&site=s1&templateID=furniture_pale-blue&path=%2F&back_url=%2F%3Fbitrix_include_areas%3DY%26clear_cache%3DY&siteTemplateId=furniture_pale-blue',NULL,1,NULL,'a:1:{s:4:\"path\";s:8:\"test.php\";}'),(9,'2018-03-20 10:16:55','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:8:\"test.php\";}'),(10,'2018-03-20 11:54:56','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(11,'2018-03-20 11:55:12','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(12,'2018-03-20 11:55:29','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(13,'2018-03-20 12:28:37','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(14,'2018-03-20 12:29:32','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:34;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:6:\"Chrome\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(15,'2018-03-20 12:29:41','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(16,'2018-03-20 12:30:30','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(17,'2018-03-20 13:55:04','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(18,'2018-03-20 13:55:41','UNKNOWN','PAGE_EDIT','main','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/public_file_edit.php','s1',1,NULL,'a:1:{s:4:\"path\";s:9:\"index.php\";}'),(19,'2018-03-21 05:20:03','WARNING','SITE_CHECKER_ERROR','main','CSiteCheckerTest::CommonTest();','-','-','/?bitrix_include_areas=N&clear_cache=Y','s1',NULL,NULL,''),(20,'2018-03-21 11:53:00','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(21,'2018-03-21 12:02:56','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:36;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Alladin\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(22,'2018-03-21 12:03:02','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:35;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:5:\"Pluto\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(23,'2018-03-21 12:03:11','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:36;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Alladin\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(24,'2018-03-21 12:03:28','UNKNOWN','IBLOCK_ELEMENT_ADD','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:37;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Palermo\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(25,'2018-03-21 12:15:02','UNKNOWN','IBLOCK_ELEMENT_EDIT','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=5&type=actions&lang=ru&find_section_section=-1',NULL,1,NULL,'a:6:{s:2:\"ID\";i:33;s:4:\"CODE\";s:0:\"\";s:4:\"NAME\";s:7:\"Herzog1\";s:12:\"ELEMENT_NAME\";s:14:\"Элемент\";s:7:\"USER_ID\";i:1;s:15:\"IBLOCK_PAGE_URL\";s:23:\"/actions/index.php?ID=5\";}'),(26,'2018-03-21 12:42:49','SECURITY','OLD_ACTIONS','iblock','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Есть устаревшие, но еще активные акции'),(27,'2018-03-21 12:43:44','SECURITY','OLD_ACTIONS','iblock','UNKNOWN','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Есть устаревшие, но еще активные акции: 2 шт.'),(28,'2018-03-21 12:45:38','SECURITY','OLD_ACTIONS','iblock','5','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(29,'2018-03-21 12:50:59','SECURITY','OLD_ACTIONS','iblock','actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(30,'2018-03-21 12:51:42','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(31,'2018-03-21 13:07:29','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(32,'2018-03-21 13:07:50','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(33,'2018-03-21 13:09:20','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(34,'2018-03-21 13:09:47','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(35,'2018-03-21 13:10:02','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(36,'2018-03-21 13:10:28','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(37,'2018-03-21 13:14:31','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(38,'2018-03-21 13:21:31','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(39,'2018-03-21 13:25:01','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(40,'2018-03-21 13:26:12','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(41,'2018-03-21 13:43:08','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(42,'2018-03-21 13:46:22','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(43,'2018-03-21 13:46:46','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(44,'2018-03-22 05:30:34','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(45,'2018-03-22 05:30:37','SECURITY','OLD_ACTIONS','iblock','iblock:actions','127.0.0.1','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36','/test.php','s1',1,NULL,'Устаревшие, но еще активные акции: 2 шт.'),(46,'2018-03-22 05:54:51','WARNING','SITE_CHECKER_ERROR','main','CSiteCheckerTest::CommonTest();','-','-','/bitrix/tools/public_session.php?&interval=0&k=5a5f39f4cbe16cee65b9413801f5c8cd','s1',NULL,NULL,'');
 /*!40000 ALTER TABLE `b_event_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4009,7 +4010,7 @@ CREATE TABLE `b_lang` (
 
 LOCK TABLES `b_lang` WRITE;
 /*!40000 ALTER TABLE `b_lang` DISABLE KEYS */;
-INSERT INTO `b_lang` VALUES ('s1',1,'Y','Y','Cайт производства (Сайт по умолчанию)','/',NULL,NULL,NULL,NULL,NULL,'ru',NULL,'N',NULL,'Cайт производства',NULL,1);
+INSERT INTO `b_lang` VALUES ('s1',1,'Y','Y','Cайт производства (Сайт по умолчанию)','/',NULL,NULL,NULL,NULL,NULL,'ru','','Y','','Cайт производства','',1);
 /*!40000 ALTER TABLE `b_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4033,6 +4034,7 @@ CREATE TABLE `b_lang_domain` (
 
 LOCK TABLES `b_lang_domain` WRITE;
 /*!40000 ALTER TABLE `b_lang_domain` DISABLE KEYS */;
+INSERT INTO `b_lang_domain` VALUES ('s1','localhost');
 /*!40000 ALTER TABLE `b_lang_domain` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4411,7 +4413,7 @@ CREATE TABLE `b_option` (
 
 LOCK TABLES `b_option` WRITE;
 /*!40000 ALTER TABLE `b_option` DISABLE KEYS */;
-INSERT INTO `b_option` VALUES ('main','~ft_b_user','a:3:{s:19:\"SEARCH_USER_CONTENT\";b:1;s:25:\"SEARCH_DEPARTMENT_CONTENT\";b:1;s:20:\"SEARCH_ADMIN_CONTENT\";b:1;}',NULL,NULL),('main','rating_authority_rating','2',NULL,NULL),('main','rating_assign_rating_group_add','1',NULL,NULL),('main','rating_assign_rating_group_delete','1',NULL,NULL),('main','rating_assign_rating_group','3',NULL,NULL),('main','rating_assign_authority_group_add','2',NULL,NULL),('main','rating_assign_authority_group_delete','2',NULL,NULL),('main','rating_assign_authority_group','4',NULL,NULL),('main','rating_community_size','1',NULL,NULL),('main','rating_community_authority','30',NULL,NULL),('main','rating_vote_weight','10',NULL,NULL),('main','rating_normalization_type','auto',NULL,NULL),('main','rating_normalization','10',NULL,NULL),('main','rating_count_vote','10',NULL,NULL),('main','rating_authority_weight_formula','Y',NULL,NULL),('main','rating_community_last_visit','90',NULL,NULL),('main','rating_text_like_y','Нравится',NULL,NULL),('main','rating_text_like_n','Не нравится',NULL,NULL),('main','rating_text_like_d','Это нравится',NULL,NULL),('main','rating_assign_type','auto',NULL,NULL),('main','rating_vote_type','like',NULL,NULL),('main','rating_self_vote','Y',NULL,NULL),('main','rating_vote_show','Y',NULL,NULL),('main','rating_vote_template','like',NULL,NULL),('main','rating_start_authority','3',NULL,NULL),('main','PARAM_MAX_SITES','2',NULL,NULL),('main','PARAM_MAX_USERS','0',NULL,NULL),('main','distributive6','Y',NULL,NULL),('main','~new_license11_sign','Y',NULL,NULL),('main','GROUP_DEFAULT_TASK','1',NULL,NULL),('main','vendor','1c_bitrix',NULL,NULL),('main','admin_lid','ru',NULL,NULL),('main','update_site','www.bitrixsoft.com',NULL,NULL),('main','update_site_ns','Y',NULL,NULL),('main','optimize_css_files','Y',NULL,NULL),('main','optimize_js_files','Y',NULL,NULL),('main','admin_passwordh','FVkQfGYUBgYtCUVcDxcPCgsTAQ==',NULL,NULL),('main','server_uniq_id','853af3469f909d915b421dbe8c3ee637',NULL,NULL),('blog','socNetNewPerms','Y',NULL,NULL),('fileman','use_editor_3','Y',NULL,NULL),('forum','FILTER_DICT_W','1',NULL,'ru'),('forum','FILTER_DICT_T','2',NULL,'ru'),('forum','FILTER_DICT_W','3',NULL,'en'),('forum','FILTER_DICT_T','4',NULL,'en'),('forum','FILTER','N',NULL,NULL),('search','version','v2.0',NULL,NULL),('search','dbnode_id','N',NULL,NULL),('search','dbnode_status','ok',NULL,NULL),('security','ipcheck_disable_file','/bitrix/modules/ipcheck_disable_af90fd3830de69c42df4db716704efb3',NULL,NULL),('security','redirect_sid','pd8k63efqxq90m0mvg24zhxt43wn3j3y',NULL,NULL),('vote','VOTE_DIR','',NULL,NULL),('vote','VOTE_COMPATIBLE_OLD_TEMPLATE','N',NULL,NULL),('main','email_from','admin@ad.min',NULL,NULL),('fileman','different_set','Y',NULL,NULL),('fileman','menutypes','a:3:{s:4:\\\"left\\\";s:19:\\\"Левое меню\\\";s:3:\\\"top\\\";s:23:\\\"Верхнее меню\\\";s:6:\\\"bottom\\\";s:21:\\\"Нижнее меню\\\";}',NULL,'s1'),('main','wizard_template_id','furniture',NULL,'s1'),('main','wizard_site_logo','0',NULL,'s1'),('main','wizard_furniture_theme_id','pale-blue',NULL,'s1'),('socialnetwork','allow_tooltip','N',NULL,NULL),('fileman','propstypes','a:4:{s:11:\"description\";s:33:\"Описание страницы\";s:8:\"keywords\";s:27:\"Ключевые слова\";s:5:\"title\";s:44:\"Заголовок окна браузера\";s:14:\"keywords_inner\";s:35:\"Продвигаемые слова\";}',NULL,'s1'),('search','suggest_save_days','250',NULL,NULL),('search','use_tf_cache','Y',NULL,NULL),('search','use_word_distance','Y',NULL,NULL),('search','use_social_rating','Y',NULL,NULL),('iblock','use_htmledit','Y',NULL,NULL),('socialservices','auth_services','a:12:{s:9:\"VKontakte\";s:1:\"N\";s:8:\"MyMailRu\";s:1:\"N\";s:7:\"Twitter\";s:1:\"N\";s:8:\"Facebook\";s:1:\"N\";s:11:\"Livejournal\";s:1:\"Y\";s:12:\"YandexOpenID\";s:1:\"Y\";s:7:\"Rambler\";s:1:\"Y\";s:12:\"MailRuOpenID\";s:1:\"Y\";s:12:\"Liveinternet\";s:1:\"Y\";s:7:\"Blogger\";s:1:\"Y\";s:6:\"OpenID\";s:1:\"Y\";s:6:\"LiveID\";s:1:\"N\";}',NULL,NULL),('main','wizard_firstcorp_furniture_s1','Y',NULL,NULL),('main','wizard_solution','corp_furniture',NULL,'s1'),('fileman','stickers_use_hotkeys','N',NULL,NULL),('main','site_checker_access','Y',NULL,NULL),('main','site_checker_success','',NULL,NULL),('main','signer_default_key','7f5720499471e3ccdd447cd104452d2aaf1fd8bac64a07da131bde5bcd1a3a0924971116194f84e9bf383d0954b9ec401919861c02b9fbe0a1226479f8a1f6d1',NULL,NULL),('main','composite_debug_duration','300',NULL,NULL);
+INSERT INTO `b_option` VALUES ('main','~ft_b_user','a:3:{s:19:\"SEARCH_USER_CONTENT\";b:1;s:25:\"SEARCH_DEPARTMENT_CONTENT\";b:1;s:20:\"SEARCH_ADMIN_CONTENT\";b:1;}',NULL,NULL),('main','rating_authority_rating','2',NULL,NULL),('main','rating_assign_rating_group_add','1',NULL,NULL),('main','rating_assign_rating_group_delete','1',NULL,NULL),('main','rating_assign_rating_group','3',NULL,NULL),('main','rating_assign_authority_group_add','2',NULL,NULL),('main','rating_assign_authority_group_delete','2',NULL,NULL),('main','rating_assign_authority_group','4',NULL,NULL),('main','rating_community_size','1',NULL,NULL),('main','rating_community_authority','30',NULL,NULL),('main','rating_vote_weight','10',NULL,NULL),('main','rating_normalization_type','auto',NULL,NULL),('main','rating_normalization','10',NULL,NULL),('main','rating_count_vote','10',NULL,NULL),('main','rating_authority_weight_formula','Y',NULL,NULL),('main','rating_community_last_visit','90',NULL,NULL),('main','rating_text_like_y','Нравится',NULL,NULL),('main','rating_text_like_n','Не нравится',NULL,NULL),('main','rating_text_like_d','Это нравится',NULL,NULL),('main','rating_assign_type','auto',NULL,NULL),('main','rating_vote_type','like',NULL,NULL),('main','rating_self_vote','Y',NULL,NULL),('main','rating_vote_show','Y',NULL,NULL),('main','rating_vote_template','like',NULL,NULL),('main','rating_start_authority','3',NULL,NULL),('main','PARAM_MAX_SITES','2',NULL,NULL),('main','PARAM_MAX_USERS','0',NULL,NULL),('main','distributive6','Y',NULL,NULL),('main','~new_license11_sign','Y',NULL,NULL),('main','GROUP_DEFAULT_TASK','1',NULL,NULL),('main','vendor','1c_bitrix',NULL,NULL),('main','admin_lid','ru',NULL,NULL),('main','update_site','www.bitrixsoft.com',NULL,NULL),('main','update_site_ns','Y',NULL,NULL),('main','optimize_css_files','Y',NULL,NULL),('main','optimize_js_files','Y',NULL,NULL),('main','admin_passwordh','FVkQfGYUBgYtCUVcDxcPCgsTAQ==',NULL,NULL),('main','server_uniq_id','853af3469f909d915b421dbe8c3ee637',NULL,NULL),('blog','socNetNewPerms','Y',NULL,NULL),('fileman','use_editor_3','Y',NULL,NULL),('forum','FILTER_DICT_W','1',NULL,'ru'),('forum','FILTER_DICT_T','2',NULL,'ru'),('forum','FILTER_DICT_W','3',NULL,'en'),('forum','FILTER_DICT_T','4',NULL,'en'),('forum','FILTER','N',NULL,NULL),('search','version','v2.0',NULL,NULL),('search','dbnode_id','N',NULL,NULL),('search','dbnode_status','ok',NULL,NULL),('security','ipcheck_disable_file','/bitrix/modules/ipcheck_disable_af90fd3830de69c42df4db716704efb3',NULL,NULL),('security','redirect_sid','pd8k63efqxq90m0mvg24zhxt43wn3j3y',NULL,NULL),('vote','VOTE_DIR','',NULL,NULL),('vote','VOTE_COMPATIBLE_OLD_TEMPLATE','N',NULL,NULL),('main','email_from','admin@ad.min',NULL,NULL),('fileman','different_set','Y',NULL,NULL),('fileman','menutypes','a:3:{s:4:\\\"left\\\";s:19:\\\"Левое меню\\\";s:3:\\\"top\\\";s:23:\\\"Верхнее меню\\\";s:6:\\\"bottom\\\";s:21:\\\"Нижнее меню\\\";}',NULL,'s1'),('main','wizard_template_id','furniture',NULL,'s1'),('main','wizard_site_logo','0',NULL,'s1'),('main','wizard_furniture_theme_id','pale-blue',NULL,'s1'),('socialnetwork','allow_tooltip','N',NULL,NULL),('fileman','propstypes','a:4:{s:11:\"description\";s:33:\"Описание страницы\";s:8:\"keywords\";s:27:\"Ключевые слова\";s:5:\"title\";s:44:\"Заголовок окна браузера\";s:14:\"keywords_inner\";s:35:\"Продвигаемые слова\";}',NULL,'s1'),('search','suggest_save_days','250',NULL,NULL),('search','use_tf_cache','Y',NULL,NULL),('search','use_word_distance','Y',NULL,NULL),('search','use_social_rating','Y',NULL,NULL),('iblock','use_htmledit','Y',NULL,NULL),('socialservices','auth_services','a:12:{s:9:\"VKontakte\";s:1:\"N\";s:8:\"MyMailRu\";s:1:\"N\";s:7:\"Twitter\";s:1:\"N\";s:8:\"Facebook\";s:1:\"N\";s:11:\"Livejournal\";s:1:\"Y\";s:12:\"YandexOpenID\";s:1:\"Y\";s:7:\"Rambler\";s:1:\"Y\";s:12:\"MailRuOpenID\";s:1:\"Y\";s:12:\"Liveinternet\";s:1:\"Y\";s:7:\"Blogger\";s:1:\"Y\";s:6:\"OpenID\";s:1:\"Y\";s:6:\"LiveID\";s:1:\"N\";}',NULL,NULL),('main','wizard_firstcorp_furniture_s1','Y',NULL,NULL),('main','wizard_solution','corp_furniture',NULL,'s1'),('fileman','stickers_use_hotkeys','N',NULL,NULL),('main','site_checker_access','Y',NULL,NULL),('main','site_checker_success','N',NULL,NULL),('main','signer_default_key','7f5720499471e3ccdd447cd104452d2aaf1fd8bac64a07da131bde5bcd1a3a0924971116194f84e9bf383d0954b9ec401919861c02b9fbe0a1226479f8a1f6d1',NULL,NULL),('main','composite_debug_duration','300',NULL,NULL),('main','site_name','localhost',NULL,NULL),('main','server_name','localhost',NULL,NULL),('main','cookie_name','BITRIX_SM',NULL,NULL),('main','ALLOW_SPREAD_COOKIE','Y',NULL,NULL),('main','header_200','N',NULL,NULL),('main','error_reporting','85',NULL,NULL),('main','use_hot_keys','Y',NULL,NULL),('main','smile_gallery_id','1',NULL,NULL),('main','all_bcc','',NULL,NULL),('main','send_mid','N',NULL,NULL),('main','fill_to_mail','N',NULL,NULL),('main','CONVERT_UNIX_NEWLINE_2_WINDOWS','N',NULL,NULL),('main','convert_mail_header','Y',NULL,NULL),('main','attach_images','N',NULL,NULL),('main','max_file_size','0',NULL,NULL),('main','mail_event_period','14',NULL,NULL),('main','mail_event_bulk','5',NULL,NULL),('main','mail_additional_parameters','',NULL,NULL),('main','disk_space','',NULL,NULL),('main','upload_dir','upload',NULL,NULL),('main','save_original_file_name','N',NULL,NULL),('main','translit_original_file_name','N',NULL,NULL),('main','convert_original_file_name','Y',NULL,NULL),('main','image_resize_quality','95',NULL,NULL),('main','bx_fast_download','N',NULL,NULL),('main','profile_image_width','',NULL,NULL),('main','profile_image_height','',NULL,NULL),('main','profile_image_size','',NULL,NULL),('main','use_minified_assets','Y',NULL,NULL),('main','move_js_to_body','N',NULL,NULL),('main','compres_css_js_files','N',NULL,NULL),('main','translate_key_yandex','',NULL,NULL),('main','use_time_zones','N',NULL,NULL),('main','auto_time_zone','N',NULL,NULL),('main','phone_number_default_country','16',NULL,NULL),('main','gather_catalog_stat','Y',NULL,NULL),('main','map_top_menu_type','top',NULL,NULL),('main','map_left_menu_type','left',NULL,NULL),('main','url_preview_enable','N',NULL,NULL),('main','url_preview_save_images','N',NULL,NULL),('main','update_devsrv','N',NULL,NULL),('main','update_site_proxy_addr','',NULL,NULL),('main','update_site_proxy_port','',NULL,NULL),('main','update_site_proxy_user','',NULL,NULL),('main','update_site_proxy_pass','',NULL,NULL),('main','strong_update_check','Y',NULL,NULL),('main','stable_versions_only','Y',NULL,NULL),('main','update_autocheck','',NULL,NULL),('main','update_stop_autocheck','N',NULL,NULL),('main','update_is_gzip_installed','Y',NULL,NULL),('main','update_load_timeout','30',NULL,NULL),('main','store_password','Y',NULL,NULL),('main','use_secure_password_cookies','N',NULL,NULL),('main','auth_multisite','N',NULL,NULL),('main','allow_socserv_authorization','Y',NULL,NULL),('main','use_digest_auth','N',NULL,NULL),('main','custom_register_page','',NULL,NULL),('main','auth_components_template','',NULL,NULL),('main','captcha_restoring_password','N',NULL,NULL),('main','use_encrypted_auth','N',NULL,NULL),('main','new_user_registration','Y',NULL,NULL),('main','captcha_registration','N',NULL,NULL),('main','new_user_email_required','Y',NULL,NULL),('main','new_user_registration_email_confirmation','N',NULL,NULL),('main','new_user_registration_cleanup_days','7',NULL,NULL),('main','new_user_email_uniq_check','N',NULL,NULL),('main','session_expand','Y',NULL,NULL),('main','session_auth_only','Y',NULL,NULL),('main','session_show_message','Y',NULL,NULL),('main','event_log_cleanup_days','7',NULL,NULL),('main','event_log_logout','N',NULL,NULL),('main','event_log_login_success','N',NULL,NULL),('main','event_log_login_fail','N',NULL,NULL),('main','event_log_register','N',NULL,NULL),('main','event_log_register_fail','N',NULL,NULL),('main','event_log_password_request','N',NULL,NULL),('main','event_log_password_change','N',NULL,NULL),('main','event_log_user_edit','N',NULL,NULL),('main','event_log_user_delete','N',NULL,NULL),('main','event_log_user_groups','N',NULL,NULL),('main','event_log_group_policy','N',NULL,NULL),('main','event_log_module_access','N',NULL,NULL),('main','event_log_file_access','N',NULL,NULL),('main','event_log_task','N',NULL,NULL),('main','event_log_marketplace','Y',NULL,NULL),('main','auth_controller_sso','N',NULL,NULL),('main','show_panel_for_users','N;',NULL,NULL),('main','hide_panel_for_users','N;',NULL,NULL),('main','GROUP_DEFAULT_RIGHT','D',NULL,NULL);
 /*!40000 ALTER TABLE `b_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6769,7 +6771,7 @@ CREATE TABLE `b_site_template` (
   `TEMPLATE` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `ix_site_template_site` (`SITE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -6778,7 +6780,7 @@ CREATE TABLE `b_site_template` (
 
 LOCK TABLES `b_site_template` WRITE;
 /*!40000 ALTER TABLE `b_site_template` DISABLE KEYS */;
-INSERT INTO `b_site_template` VALUES (1,'s1','',150,'furniture_pale-blue');
+INSERT INTO `b_site_template` VALUES (2,'s1','',150,'furniture_pale-blue');
 /*!40000 ALTER TABLE `b_site_template` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7424,7 +7426,7 @@ CREATE TABLE `b_user` (
 
 LOCK TABLES `b_user` WRITE;
 /*!40000 ALTER TABLE `b_user` DISABLE KEYS */;
-INSERT INTO `b_user` VALUES (1,'2018-03-21 13:59:57','admin','ipplPOzw3b631434aeab35a70d0084d83a96f717','FVtBzkVKb30aca843d2fb016074527e335d3bc81','Y','','','averin@intaro.email','2018-03-22 08:18:57','2018-03-19 16:34:20','s1','','','','',NULL,NULL,'','','','','','','','','','0','','','','','','','','','','','','','','0','',NULL,'','',NULL,'',NULL,NULL,'2018-03-21 16:59:57','',NULL,0,NULL,'',NULL,NULL,'',NULL,'');
+INSERT INTO `b_user` VALUES (1,'2018-03-21 13:59:57','admin','ipplPOzw3b631434aeab35a70d0084d83a96f717','FVtBzkVKb30aca843d2fb016074527e335d3bc81','Y','','','averin@intaro.email','2018-03-22 09:52:45','2018-03-19 16:34:20','s1','','','','',NULL,NULL,'','','','','','','','','','0','','','','','','','','','','','','','','0','',NULL,'','',NULL,'',NULL,NULL,'2018-03-21 16:59:57','',NULL,0,NULL,'',NULL,NULL,'',NULL,'');
 /*!40000 ALTER TABLE `b_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7791,7 +7793,7 @@ CREATE TABLE `b_user_option` (
   `COMMON` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `ux_user_category_name` (`USER_ID`,`CATEGORY`,`NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -7800,7 +7802,7 @@ CREATE TABLE `b_user_option` (
 
 LOCK TABLES `b_user_option` WRITE;
 /*!40000 ALTER TABLE `b_user_option` DISABLE KEYS */;
-INSERT INTO `b_user_option` VALUES (1,0,'intranet','~gadgets_admin_index','a:1:{i:0;a:1:{s:7:\"GADGETS\";a:8:{s:20:\"ADMIN_INFO@333333333\";a:3:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:0;s:4:\"HIDE\";s:1:\"N\";}s:19:\"HTML_AREA@444444444\";a:5:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:1;s:4:\"HIDE\";s:1:\"N\";s:8:\"USERDATA\";a:1:{s:7:\"content\";s:797:\"<table class=\"bx-gadgets-info-site-table\" cellspacing=\"0\"><tr>	<td class=\"bx-gadget-gray\">Создатель сайта:</td>	<td>Группа компаний &laquo;1С-Битрикс&raquo;.</td>	<td class=\"bx-gadgets-info-site-logo\" rowspan=\"5\"><img src=\"/bitrix/components/bitrix/desktop/templates/admin/images/site_logo.png\"></td></tr><tr>	<td class=\"bx-gadget-gray\">Адрес сайта:</td>	<td><a href=\"http://www.1c-bitrix.ru\">www.1c-bitrix.ru</a></td></tr><tr>	<td class=\"bx-gadget-gray\">Сайт сдан:</td>	<td>12 декабря 2010 г.</td></tr><tr>	<td class=\"bx-gadget-gray\">Ответственное лицо:</td>	<td>Иван Иванов</td></tr><tr>	<td class=\"bx-gadget-gray\">E-mail:</td>	<td><a href=\"mailto:info@1c-bitrix.ru\">info@1c-bitrix.ru</a></td></tr></table>\";}s:8:\"SETTINGS\";a:1:{s:9:\"TITLE_STD\";s:34:\"Информация о сайте\";}}s:25:\"ADMIN_CHECKLIST@777888999\";a:3:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:2;s:4:\"HIDE\";s:1:\"N\";}s:19:\"RSSREADER@777777777\";a:4:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:3;s:4:\"HIDE\";s:1:\"N\";s:8:\"SETTINGS\";a:3:{s:9:\"TITLE_STD\";s:33:\"Новости 1С-Битрикс\";s:3:\"CNT\";i:10;s:7:\"RSS_URL\";s:45:\"https://www.1c-bitrix.ru/about/life/news/rss/\";}}s:24:\"ADMIN_SECURITY@555555555\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:0;s:4:\"HIDE\";s:1:\"N\";}s:25:\"ADMIN_SITESPEED@666666777\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:1;s:4:\"HIDE\";s:1:\"N\";}s:23:\"ADMIN_PERFMON@666666666\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:2;s:4:\"HIDE\";s:1:\"N\";}s:23:\"ADMIN_MARKETPALCE@22549\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:3;s:4:\"HIDE\";s:1:\"N\";}}}}','Y'),(2,0,'main.interface','global','a:1:{s:5:\"theme\";s:9:\"pale-blue\";}','Y'),(3,1,'admin_panel','settings','a:1:{s:4:\"edit\";s:3:\"off\";}','N'),(4,1,'hot_keys','user_defined','b:1;','N'),(5,1,'favorite','favorite_menu','a:1:{s:5:\"stick\";s:1:\"Y\";}','N'),(6,1,'main','helper_hero_admin','a:1:{s:4:\"time\";s:10:\"1521695953\";}','N'),(9,1,'admin_menu','pos','a:1:{s:8:\"sections\";s:126:\"menu_util,menu_iblock,menu_iblock_/actions,menu_system,menu_site,diag,menu_composite,iblock_redirect,menu_templates,menu_users\";}','N'),(17,1,'main.interface.grid','tbl_iblock_admin_ebb67a4271abe715344471b0f16321f6','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(20,1,'filter','tbl_iblock_el_searchc14bd77bcfbd245916b34dc664f04507_filter','a:1:{s:4:\"rows\";s:2:\"id\";}','N'),(24,1,'html_editor','user_settings_','a:2:{s:13:\"taskbar_shown\";s:1:\"1\";s:4:\"view\";s:7:\"wysiwyg\";}','N'),(38,1,'main.interface.grid','tbl_iblock_admin_86024cad1e83101d97359d7351051156','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(39,1,'main.interface.grid','tbl_iblock_86024cad1e83101d97359d7351051156','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(40,1,'fileman','file_dialog_config','s:35:\"s1;/upload/iblock/82f;list;type;asc\";','N'),(43,1,'bx.windowmanager.9.5','options_undefined','a:4:{s:3:\"pin\";s:9:\"undefined\";s:3:\"top\";s:5:\"false\";s:4:\"left\";s:5:\"false\";s:9:\"transform\";s:5:\"false\";}','N'),(49,1,'html_editor','type_selector_PREVIEW_TEXT5','a:1:{s:4:\"type\";s:4:\"html\";}','N'),(56,1,'list','tbl_iblock_element_83282f8abe10dba1648858eafb93e3f2','a:4:{s:7:\"columns\";s:37:\"NAME,ACTIVE,PROPERTY_2,TIMESTAMP_X,ID\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','N'),(66,1,'list','tbl_iblock_element_c278cba25337c1b7ec78b314faefd084','a:4:{s:7:\"columns\";s:40:\"NAME,ACTIVE,DATE_ACTIVE_TO,ID,PROPERTY_9\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','N'),(67,0,'list','tbl_iblock_element_c278cba25337c1b7ec78b314faefd084','a:4:{s:7:\"columns\";s:40:\"NAME,ACTIVE,DATE_ACTIVE_TO,ID,PROPERTY_9\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','Y'),(68,1,'form','form_element_5','a:1:{s:4:\"tabs\";s:1408:\"edit1--#--Элемент--,--ID--#--ID--,--ACTIVE--#--Активность--,--ACTIVE_TO--#--Окончание активности--,--NAME--#--*Название--,--PROPERTY_9--#--*Привязка к каталогу--;--edit14--#--SEO--,--IPROPERTY_TEMPLATES_ELEMENT_META_TITLE--#--Шаблон META TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_META_KEYWORDS--#--Шаблон META KEYWORDS--,--IPROPERTY_TEMPLATES_ELEMENT_META_DESCRIPTION--#--Шаблон META DESCRIPTION--,--IPROPERTY_TEMPLATES_ELEMENT_PAGE_TITLE--#--Заголовок элемента--,--IPROPERTY_TEMPLATES_ELEMENTS_PREVIEW_PICTURE--#----Настройки для картинок анонса элементов--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_NAME--#--Шаблон имени файла--,--IPROPERTY_TEMPLATES_ELEMENTS_DETAIL_PICTURE--#----Настройки для детальных картинок элементов--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_NAME--#--Шаблон имени файла--,--SEO_ADDITIONAL--#----Дополнительно--,--TAGS--#--Теги--;--\";}','N'),(69,0,'form','form_element_5','a:1:{s:4:\"tabs\";s:1408:\"edit1--#--Элемент--,--ID--#--ID--,--ACTIVE--#--Активность--,--ACTIVE_TO--#--Окончание активности--,--NAME--#--*Название--,--PROPERTY_9--#--*Привязка к каталогу--;--edit14--#--SEO--,--IPROPERTY_TEMPLATES_ELEMENT_META_TITLE--#--Шаблон META TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_META_KEYWORDS--#--Шаблон META KEYWORDS--,--IPROPERTY_TEMPLATES_ELEMENT_META_DESCRIPTION--#--Шаблон META DESCRIPTION--,--IPROPERTY_TEMPLATES_ELEMENT_PAGE_TITLE--#--Заголовок элемента--,--IPROPERTY_TEMPLATES_ELEMENTS_PREVIEW_PICTURE--#----Настройки для картинок анонса элементов--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_NAME--#--Шаблон имени файла--,--IPROPERTY_TEMPLATES_ELEMENTS_DETAIL_PICTURE--#----Настройки для детальных картинок элементов--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_NAME--#--Шаблон имени файла--,--SEO_ADDITIONAL--#----Дополнительно--,--TAGS--#--Теги--;--\";}','Y'),(70,1,'edit','form_element_5_73da5711b1d311823f16c2780a3ea439','a:1:{s:6:\"expand\";s:3:\"off\";}','N'),(82,1,'main.interface.grid','tbl_user','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N');
+INSERT INTO `b_user_option` VALUES (1,0,'intranet','~gadgets_admin_index','a:1:{i:0;a:1:{s:7:\"GADGETS\";a:8:{s:20:\"ADMIN_INFO@333333333\";a:3:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:0;s:4:\"HIDE\";s:1:\"N\";}s:19:\"HTML_AREA@444444444\";a:5:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:1;s:4:\"HIDE\";s:1:\"N\";s:8:\"USERDATA\";a:1:{s:7:\"content\";s:797:\"<table class=\"bx-gadgets-info-site-table\" cellspacing=\"0\"><tr>	<td class=\"bx-gadget-gray\">Создатель сайта:</td>	<td>Группа компаний &laquo;1С-Битрикс&raquo;.</td>	<td class=\"bx-gadgets-info-site-logo\" rowspan=\"5\"><img src=\"/bitrix/components/bitrix/desktop/templates/admin/images/site_logo.png\"></td></tr><tr>	<td class=\"bx-gadget-gray\">Адрес сайта:</td>	<td><a href=\"http://www.1c-bitrix.ru\">www.1c-bitrix.ru</a></td></tr><tr>	<td class=\"bx-gadget-gray\">Сайт сдан:</td>	<td>12 декабря 2010 г.</td></tr><tr>	<td class=\"bx-gadget-gray\">Ответственное лицо:</td>	<td>Иван Иванов</td></tr><tr>	<td class=\"bx-gadget-gray\">E-mail:</td>	<td><a href=\"mailto:info@1c-bitrix.ru\">info@1c-bitrix.ru</a></td></tr></table>\";}s:8:\"SETTINGS\";a:1:{s:9:\"TITLE_STD\";s:34:\"Информация о сайте\";}}s:25:\"ADMIN_CHECKLIST@777888999\";a:3:{s:6:\"COLUMN\";i:0;s:3:\"ROW\";i:2;s:4:\"HIDE\";s:1:\"N\";}s:19:\"RSSREADER@777777777\";a:4:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:3;s:4:\"HIDE\";s:1:\"N\";s:8:\"SETTINGS\";a:3:{s:9:\"TITLE_STD\";s:33:\"Новости 1С-Битрикс\";s:3:\"CNT\";i:10;s:7:\"RSS_URL\";s:45:\"https://www.1c-bitrix.ru/about/life/news/rss/\";}}s:24:\"ADMIN_SECURITY@555555555\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:0;s:4:\"HIDE\";s:1:\"N\";}s:25:\"ADMIN_SITESPEED@666666777\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:1;s:4:\"HIDE\";s:1:\"N\";}s:23:\"ADMIN_PERFMON@666666666\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:2;s:4:\"HIDE\";s:1:\"N\";}s:23:\"ADMIN_MARKETPALCE@22549\";a:3:{s:6:\"COLUMN\";i:1;s:3:\"ROW\";i:3;s:4:\"HIDE\";s:1:\"N\";}}}}','Y'),(2,0,'main.interface','global','a:1:{s:5:\"theme\";s:9:\"pale-blue\";}','Y'),(3,1,'admin_panel','settings','a:1:{s:4:\"edit\";s:3:\"off\";}','N'),(4,1,'hot_keys','user_defined','b:1;','N'),(5,1,'favorite','favorite_menu','a:1:{s:5:\"stick\";s:1:\"N\";}','N'),(6,1,'main','helper_hero_admin','a:1:{s:4:\"time\";s:10:\"1521701137\";}','N'),(9,1,'admin_menu','pos','a:1:{s:8:\"sections\";s:147:\"menu_util,menu_iblock,menu_iblock_/actions,menu_system,menu_site,diag,menu_composite,iblock_redirect,menu_templates,menu_users,menu_module_settings\";}','N'),(17,1,'main.interface.grid','tbl_iblock_admin_ebb67a4271abe715344471b0f16321f6','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(20,1,'filter','tbl_iblock_el_searchc14bd77bcfbd245916b34dc664f04507_filter','a:1:{s:4:\"rows\";s:2:\"id\";}','N'),(24,1,'html_editor','user_settings_','a:2:{s:13:\"taskbar_shown\";s:1:\"1\";s:4:\"view\";s:7:\"wysiwyg\";}','N'),(38,1,'main.interface.grid','tbl_iblock_admin_86024cad1e83101d97359d7351051156','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(39,1,'main.interface.grid','tbl_iblock_86024cad1e83101d97359d7351051156','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N'),(40,1,'fileman','file_dialog_config','s:35:\"s1;/upload/iblock/82f;list;type;asc\";','N'),(43,1,'bx.windowmanager.9.5','options_undefined','a:4:{s:3:\"pin\";s:9:\"undefined\";s:3:\"top\";s:5:\"false\";s:4:\"left\";s:5:\"false\";s:9:\"transform\";s:5:\"false\";}','N'),(49,1,'html_editor','type_selector_PREVIEW_TEXT5','a:1:{s:4:\"type\";s:4:\"html\";}','N'),(56,1,'list','tbl_iblock_element_83282f8abe10dba1648858eafb93e3f2','a:4:{s:7:\"columns\";s:37:\"NAME,ACTIVE,PROPERTY_2,TIMESTAMP_X,ID\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','N'),(66,1,'list','tbl_iblock_element_c278cba25337c1b7ec78b314faefd084','a:4:{s:7:\"columns\";s:40:\"NAME,ACTIVE,DATE_ACTIVE_TO,ID,PROPERTY_9\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','N'),(67,0,'list','tbl_iblock_element_c278cba25337c1b7ec78b314faefd084','a:4:{s:7:\"columns\";s:40:\"NAME,ACTIVE,DATE_ACTIVE_TO,ID,PROPERTY_9\";s:2:\"by\";s:11:\"timestamp_x\";s:5:\"order\";s:4:\"desc\";s:9:\"page_size\";s:2:\"20\";}','Y'),(68,1,'form','form_element_5','a:1:{s:4:\"tabs\";s:1408:\"edit1--#--Элемент--,--ID--#--ID--,--ACTIVE--#--Активность--,--ACTIVE_TO--#--Окончание активности--,--NAME--#--*Название--,--PROPERTY_9--#--*Привязка к каталогу--;--edit14--#--SEO--,--IPROPERTY_TEMPLATES_ELEMENT_META_TITLE--#--Шаблон META TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_META_KEYWORDS--#--Шаблон META KEYWORDS--,--IPROPERTY_TEMPLATES_ELEMENT_META_DESCRIPTION--#--Шаблон META DESCRIPTION--,--IPROPERTY_TEMPLATES_ELEMENT_PAGE_TITLE--#--Заголовок элемента--,--IPROPERTY_TEMPLATES_ELEMENTS_PREVIEW_PICTURE--#----Настройки для картинок анонса элементов--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_NAME--#--Шаблон имени файла--,--IPROPERTY_TEMPLATES_ELEMENTS_DETAIL_PICTURE--#----Настройки для детальных картинок элементов--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_NAME--#--Шаблон имени файла--,--SEO_ADDITIONAL--#----Дополнительно--,--TAGS--#--Теги--;--\";}','N'),(69,0,'form','form_element_5','a:1:{s:4:\"tabs\";s:1408:\"edit1--#--Элемент--,--ID--#--ID--,--ACTIVE--#--Активность--,--ACTIVE_TO--#--Окончание активности--,--NAME--#--*Название--,--PROPERTY_9--#--*Привязка к каталогу--;--edit14--#--SEO--,--IPROPERTY_TEMPLATES_ELEMENT_META_TITLE--#--Шаблон META TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_META_KEYWORDS--#--Шаблон META KEYWORDS--,--IPROPERTY_TEMPLATES_ELEMENT_META_DESCRIPTION--#--Шаблон META DESCRIPTION--,--IPROPERTY_TEMPLATES_ELEMENT_PAGE_TITLE--#--Заголовок элемента--,--IPROPERTY_TEMPLATES_ELEMENTS_PREVIEW_PICTURE--#----Настройки для картинок анонса элементов--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_PREVIEW_PICTURE_FILE_NAME--#--Шаблон имени файла--,--IPROPERTY_TEMPLATES_ELEMENTS_DETAIL_PICTURE--#----Настройки для детальных картинок элементов--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_ALT--#--Шаблон ALT--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_TITLE--#--Шаблон TITLE--,--IPROPERTY_TEMPLATES_ELEMENT_DETAIL_PICTURE_FILE_NAME--#--Шаблон имени файла--,--SEO_ADDITIONAL--#----Дополнительно--,--TAGS--#--Теги--;--\";}','Y'),(70,1,'edit','form_element_5_73da5711b1d311823f16c2780a3ea439','a:1:{s:6:\"expand\";s:3:\"off\";}','N'),(82,1,'main.interface.grid','tbl_user','a:3:{s:5:\"views\";a:1:{s:7:\"default\";a:2:{s:7:\"columns\";s:0:\"\";s:13:\"columns_sizes\";a:2:{s:6:\"expand\";i:1;s:7:\"columns\";a:0:{}}}}s:7:\"filters\";a:0:{}s:12:\"current_view\";s:7:\"default\";}','N');
 /*!40000 ALTER TABLE `b_user_option` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7830,7 +7832,7 @@ CREATE TABLE `b_user_stored_auth` (
 
 LOCK TABLES `b_user_stored_auth` WRITE;
 /*!40000 ALTER TABLE `b_user_stored_auth` DISABLE KEYS */;
-INSERT INTO `b_user_stored_auth` VALUES (1,1,'2018-03-19 16:34:21','2018-03-22 08:18:58','a4e3db1103aef7788207d8509a132f09','N',2130706433),(2,1,'2018-03-20 15:24:00','2018-03-20 15:24:00','81150b92e3fa0e0edeae4f2c4a5c4313','N',2130706433);
+INSERT INTO `b_user_stored_auth` VALUES (1,1,'2018-03-19 16:34:21','2018-03-22 09:35:26','a4e3db1103aef7788207d8509a132f09','N',2130706433),(2,1,'2018-03-20 15:24:00','2018-03-20 15:24:00','81150b92e3fa0e0edeae4f2c4a5c4313','N',2130706433);
 /*!40000 ALTER TABLE `b_user_stored_auth` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -8360,6 +8362,680 @@ LOCK TABLES `b_xml_tree` WRITE;
 /*!40000 ALTER TABLE `b_xml_tree` DISABLE KEYS */;
 INSERT INTO `b_xml_tree` VALUES (1,0,1,320,0,'КоммерческаяИнформация',NULL,'a:2:{s:22:\"ВерсияСхемы\";s:5:\"2.021\";s:32:\"ДатаФормирования\";s:19:\"2010-06-22T12:53:42\";}'),(2,1,2,67,1,'Классификатор',NULL,NULL),(3,2,3,4,2,'Ид','2',NULL),(4,2,5,6,2,'Наименование','Вакансии',NULL),(5,2,7,64,2,'Свойства',NULL,NULL),(6,5,8,15,3,'Свойство',NULL,NULL),(7,6,9,10,4,'Ид','CML2_ACTIVE',NULL),(8,6,11,12,4,'Наименование','БитриксАктивность',NULL),(9,6,13,14,4,'Множественное','false',NULL),(10,5,16,23,3,'Свойство',NULL,NULL),(11,10,17,18,4,'Ид','CML2_CODE',NULL),(12,10,19,20,4,'Наименование','Символьный код',NULL),(13,10,21,22,4,'Множественное','false',NULL),(14,5,24,31,3,'Свойство',NULL,NULL),(15,14,25,26,4,'Ид','CML2_SORT',NULL),(16,14,27,28,4,'Наименование','Сортировка',NULL),(17,14,29,30,4,'Множественное','false',NULL),(18,5,32,39,3,'Свойство',NULL,NULL),(19,18,33,34,4,'Ид','CML2_ACTIVE_FROM',NULL),(20,18,35,36,4,'Наименование','Начало активности',NULL),(21,18,37,38,4,'Множественное','false',NULL),(22,5,40,47,3,'Свойство',NULL,NULL),(23,22,41,42,4,'Ид','CML2_ACTIVE_TO',NULL),(24,22,43,44,4,'Наименование','Окончание активности',NULL),(25,22,45,46,4,'Множественное','false',NULL),(26,5,48,55,3,'Свойство',NULL,NULL),(27,26,49,50,4,'Ид','CML2_PREVIEW_TEXT',NULL),(28,26,51,52,4,'Наименование','Анонс',NULL),(29,26,53,54,4,'Множественное','false',NULL),(30,5,56,63,3,'Свойство',NULL,NULL),(31,30,57,58,4,'Ид','CML2_PREVIEW_PICTURE',NULL),(32,30,59,60,4,'Наименование','Картинка анонса',NULL),(33,30,61,62,4,'Множественное','false',NULL),(34,2,65,66,2,'Группы',NULL,NULL),(35,1,68,319,1,'Каталог',NULL,NULL),(36,35,69,70,2,'Ид','furniture_vacancies',NULL),(37,35,71,72,2,'ИдКлассификатора','2',NULL),(38,35,73,74,2,'Наименование','Вакансии',NULL),(39,35,75,76,2,'БитриксКод','furniture_vacancies',NULL),(40,35,77,78,2,'БитриксСортировка','500',NULL),(41,35,79,80,2,'БитриксURLСписок','#SITE_DIR#/company/vacancies.php',NULL),(42,35,81,82,2,'БитриксURLДеталь','#SITE_DIR#/company/vacancies.php##ID#',NULL),(43,35,83,84,2,'БитриксURLРаздел',NULL,NULL),(44,35,85,86,2,'БитриксКартинка',NULL,NULL),(45,35,87,88,2,'БитриксИндексироватьЭлементы','true',NULL),(46,35,89,90,2,'БитриксИндексироватьРазделы','false',NULL),(47,35,91,92,2,'БитриксДокументооборот','false',NULL),(48,35,93,154,2,'БитриксПодписи',NULL,NULL),(49,48,94,99,3,'БитриксПодпись',NULL,NULL),(50,49,95,96,4,'Ид','ELEMENT_NAME',NULL),(51,49,97,98,4,'Значение','Вакансия',NULL),(52,48,100,105,3,'БитриксПодпись',NULL,NULL),(53,52,101,102,4,'Ид','ELEMENTS_NAME',NULL),(54,52,103,104,4,'Значение','Вакансии',NULL),(55,48,106,111,3,'БитриксПодпись',NULL,NULL),(56,55,107,108,4,'Ид','ELEMENT_ADD',NULL),(57,55,109,110,4,'Значение','Добавить вакансию',NULL),(58,48,112,117,3,'БитриксПодпись',NULL,NULL),(59,58,113,114,4,'Ид','ELEMENT_EDIT',NULL),(60,58,115,116,4,'Значение','Изменить вакансию',NULL),(61,48,118,123,3,'БитриксПодпись',NULL,NULL),(62,61,119,120,4,'Ид','ELEMENT_DELETE',NULL),(63,61,121,122,4,'Значение','Удалить вакансию',NULL),(64,48,124,129,3,'БитриксПодпись',NULL,NULL),(65,64,125,126,4,'Ид','SECTION_NAME',NULL),(66,64,127,128,4,'Значение','Раздел',NULL),(67,48,130,135,3,'БитриксПодпись',NULL,NULL),(68,67,131,132,4,'Ид','SECTIONS_NAME',NULL),(69,67,133,134,4,'Значение','Разделы',NULL),(70,48,136,141,3,'БитриксПодпись',NULL,NULL),(71,70,137,138,4,'Ид','SECTION_ADD',NULL),(72,70,139,140,4,'Значение','Добавить раздел',NULL),(73,48,142,147,3,'БитриксПодпись',NULL,NULL),(74,73,143,144,4,'Ид','SECTION_EDIT',NULL),(75,73,145,146,4,'Значение','Изменить раздел',NULL),(76,48,148,153,3,'БитриксПодпись',NULL,NULL),(77,76,149,150,4,'Ид','SECTION_DELETE',NULL),(78,76,151,152,4,'Значение','Удалить раздел',NULL),(79,35,155,318,2,'Товары',NULL,NULL),(80,79,156,209,3,'Товар',NULL,NULL),(81,80,157,158,4,'Ид','2',NULL),(82,80,159,160,4,'Наименование','Продавец-дизайнер (кухни)',NULL),(83,80,161,162,4,'БитриксТеги',NULL,NULL),(84,80,163,164,4,'Описание','<b>Требования</b> 						 						 \r\n<p>Уверенный пользователь ПК, навыки черчения от руки и в программах, опыт работы дизайнером/конструктором в мебельной сфере, этика делового общения</p>\r\n 						 						<b>Обязанности</b> 						 \r\n<p>Консультирование клиентов по кухонной мебели, оставление художественно-конструкторских проектов, прием и оформление заказов.</p>\r\n 						 						<b>Условия</b> 						 \r\n<p>Зарплата: 13500 оклад + % от личных продаж + премии‚ совокупный доход от 20000 руб,полный соц. пакет‚ оформление согласно ТК РФ</p>\r\n ',NULL),(85,80,165,208,4,'ЗначенияСвойств',NULL,NULL),(86,85,166,171,5,'ЗначенияСвойства',NULL,NULL),(87,86,167,168,6,'Ид','CML2_ACTIVE',NULL),(88,86,169,170,6,'Значение','true',NULL),(89,85,172,177,5,'ЗначенияСвойства',NULL,NULL),(90,89,173,174,6,'Ид','CML2_CODE',NULL),(91,89,175,176,6,'Значение',NULL,NULL),(92,85,178,183,5,'ЗначенияСвойства',NULL,NULL),(93,92,179,180,6,'Ид','CML2_SORT',NULL),(94,92,181,182,6,'Значение','200',NULL),(95,85,184,189,5,'ЗначенияСвойства',NULL,NULL),(96,95,185,186,6,'Ид','CML2_ACTIVE_FROM',NULL),(97,95,187,188,6,'Значение','2010-05-01 00:00:00',NULL),(98,85,190,195,5,'ЗначенияСвойства',NULL,NULL),(99,98,191,192,6,'Ид','CML2_ACTIVE_TO',NULL),(100,98,193,194,6,'Значение',NULL,NULL),(101,85,196,201,5,'ЗначенияСвойства',NULL,NULL),(102,101,197,198,6,'Ид','CML2_PREVIEW_TEXT',NULL),(103,101,199,200,6,'Значение',NULL,NULL),(104,85,202,207,5,'ЗначенияСвойства',NULL,NULL),(105,104,203,204,6,'Ид','CML2_PREVIEW_PICTURE',NULL),(106,104,205,206,6,'Значение',NULL,NULL),(107,79,210,263,3,'Товар',NULL,NULL),(108,107,211,212,4,'Ид','3',NULL),(109,107,213,214,4,'Наименование','Директор магазина',NULL),(110,107,215,216,4,'БитриксТеги',NULL,NULL),(111,107,217,218,4,'Описание','<b>Требования</b> 						 						 \r\n<p>Высшее образование‚ опыт руководящей работы в рознице от 3 лет‚ опытный пользователь ПК‚ этика делового общения‚ знание методов управления и заключения договоров‚ отличное знание торгового и трудового законодательств‚ ответственность‚ инициативность‚ активность.</p>\r\n 						 						<b>Обязанности</b> 						 \r\n<p>Руководство деятельностью магазина‚ организация эффективной работы персонала магазина‚ финансово-хозяйственная деятельность и отчетность‚ выполнение плана продаж‚ отчетность.</p>\r\n 						 						<b>Условия</b> 						 \r\n<p>Трудоустройство по ТК РФ‚ полный соц. пакет‚ график работы 5 чере 2 (168 час/мес)‚ зарплата: оклад 28000 + % от оборота + премии‚ совокупный доход от 35000 руб</p>\r\n ',NULL),(112,107,219,262,4,'ЗначенияСвойств',NULL,NULL),(113,112,220,225,5,'ЗначенияСвойства',NULL,NULL),(114,113,221,222,6,'Ид','CML2_ACTIVE',NULL),(115,113,223,224,6,'Значение','true',NULL),(116,112,226,231,5,'ЗначенияСвойства',NULL,NULL),(117,116,227,228,6,'Ид','CML2_CODE',NULL),(118,116,229,230,6,'Значение',NULL,NULL),(119,112,232,237,5,'ЗначенияСвойства',NULL,NULL),(120,119,233,234,6,'Ид','CML2_SORT',NULL),(121,119,235,236,6,'Значение','300',NULL),(122,112,238,243,5,'ЗначенияСвойства',NULL,NULL),(123,122,239,240,6,'Ид','CML2_ACTIVE_FROM',NULL),(124,122,241,242,6,'Значение','2010-05-01 00:00:00',NULL),(125,112,244,249,5,'ЗначенияСвойства',NULL,NULL),(126,125,245,246,6,'Ид','CML2_ACTIVE_TO',NULL),(127,125,247,248,6,'Значение',NULL,NULL),(128,112,250,255,5,'ЗначенияСвойства',NULL,NULL),(129,128,251,252,6,'Ид','CML2_PREVIEW_TEXT',NULL),(130,128,253,254,6,'Значение',NULL,NULL),(131,112,256,261,5,'ЗначенияСвойства',NULL,NULL),(132,131,257,258,6,'Ид','CML2_PREVIEW_PICTURE',NULL),(133,131,259,260,6,'Значение',NULL,NULL),(134,79,264,317,3,'Товар',NULL,NULL),(135,134,265,266,4,'Ид','4',NULL),(136,134,267,268,4,'Наименование','Бухгалтер отдела учета готовой продукции',NULL),(137,134,269,270,4,'БитриксТеги',NULL,NULL),(138,134,271,272,4,'Описание','<b>Требования</b> 						 						 \r\n<p>Жен., 22-45, уверенный пользователь ПК, опыт работы бухгалтером приветсвуется, знание бухгалтерского учета (базовый уровень), самостоятельность, ответственность, коммуникабельность, быстрая обучаемость, желание работать.</p>\r\n 						 						<b>Обязанности</b> 						 \r\n<p>Работа с первичными документами по учету МПЗ Ведение журналов-ордеров по производственным счетам Формирование материальных отчетов подразделений Исполнение дополнительных функций по указанию руководителя</p>\r\n 						 						<b>Условия</b> 						 \r\n<p>График работы 5 дней в неделю, адрес работы г. Шатура, Ботинский пр-д, 37. Зарплата: оклад 10 800 р. + премия 40% от оклада, полный соц. пакет.</p>\r\n ',NULL),(139,134,273,316,4,'ЗначенияСвойств',NULL,NULL),(140,139,274,279,5,'ЗначенияСвойства',NULL,NULL),(141,140,275,276,6,'Ид','CML2_ACTIVE',NULL),(142,140,277,278,6,'Значение','true',NULL),(143,139,280,285,5,'ЗначенияСвойства',NULL,NULL),(144,143,281,282,6,'Ид','CML2_CODE',NULL),(145,143,283,284,6,'Значение',NULL,NULL),(146,139,286,291,5,'ЗначенияСвойства',NULL,NULL),(147,146,287,288,6,'Ид','CML2_SORT',NULL),(148,146,289,290,6,'Значение','400',NULL),(149,139,292,297,5,'ЗначенияСвойства',NULL,NULL),(150,149,293,294,6,'Ид','CML2_ACTIVE_FROM',NULL),(151,149,295,296,6,'Значение','2010-05-01 00:00:00',NULL),(152,139,298,303,5,'ЗначенияСвойства',NULL,NULL),(153,152,299,300,6,'Ид','CML2_ACTIVE_TO',NULL),(154,152,301,302,6,'Значение',NULL,NULL),(155,139,304,309,5,'ЗначенияСвойства',NULL,NULL),(156,155,305,306,6,'Ид','CML2_PREVIEW_TEXT',NULL),(157,155,307,308,6,'Значение',NULL,NULL),(158,139,310,315,5,'ЗначенияСвойства',NULL,NULL),(159,158,311,312,6,'Ид','CML2_PREVIEW_PICTURE',NULL),(160,158,313,314,6,'Значение',NULL,NULL),(161,0,30,0,0,'',NULL,NULL),(162,0,31,0,0,'',NULL,NULL),(163,0,32,0,0,'',NULL,NULL);
 /*!40000 ALTER TABLE `b_xml_tree` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TIMESTAMP_X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `IBLOCK_TYPE_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `LID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `CODE` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `SORT` int(11) NOT NULL DEFAULT '500',
+  `LIST_PAGE_URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DETAIL_PAGE_URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SECTION_PAGE_URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CANONICAL_PAGE_URL` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PICTURE` int(18) DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_unicode_ci,
+  `DESCRIPTION_TYPE` char(4) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `RSS_TTL` int(11) NOT NULL DEFAULT '24',
+  `RSS_ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `RSS_FILE_ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `RSS_FILE_LIMIT` int(11) DEFAULT NULL,
+  `RSS_FILE_DAYS` int(11) DEFAULT NULL,
+  `RSS_YANDEX_ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `XML_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `INDEX_ELEMENT` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `INDEX_SECTION` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `WORKFLOW` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `BIZPROC` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `SECTION_CHOOSER` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LIST_MODE` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `RIGHTS_MODE` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SECTION_PROPERTY` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `PROPERTY_INDEX` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `VERSION` int(11) NOT NULL DEFAULT '1',
+  `LAST_CONV_ELEMENT` int(11) NOT NULL DEFAULT '0',
+  `SOCNET_GROUP_ID` int(18) DEFAULT NULL,
+  `EDIT_FILE_BEFORE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EDIT_FILE_AFTER` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SECTIONS_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SECTION_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ELEMENTS_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ELEMENT_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock` (`IBLOCK_TYPE_ID`,`LID`,`ACTIVE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock`
+--
+
+LOCK TABLES `site_checker_b_iblock` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_cache`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_cache`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_cache` (
+  `CACHE_KEY` varchar(35) COLLATE utf8_unicode_ci NOT NULL,
+  `CACHE` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `CACHE_DATE` datetime NOT NULL,
+  PRIMARY KEY (`CACHE_KEY`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_cache`
+--
+
+LOCK TABLES `site_checker_b_iblock_cache` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_cache` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_cache` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_element`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_element`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_element` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TIMESTAMP_X` datetime DEFAULT NULL,
+  `MODIFIED_BY` int(18) DEFAULT NULL,
+  `DATE_CREATE` datetime DEFAULT NULL,
+  `CREATED_BY` int(18) DEFAULT NULL,
+  `IBLOCK_ID` int(11) NOT NULL DEFAULT '0',
+  `IBLOCK_SECTION_ID` int(11) DEFAULT NULL,
+  `ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `ACTIVE_FROM` datetime DEFAULT NULL,
+  `ACTIVE_TO` datetime DEFAULT NULL,
+  `SORT` int(11) NOT NULL DEFAULT '500',
+  `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `PREVIEW_PICTURE` int(18) DEFAULT NULL,
+  `PREVIEW_TEXT` text COLLATE utf8_unicode_ci,
+  `PREVIEW_TEXT_TYPE` varchar(4) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `DETAIL_PICTURE` int(18) DEFAULT NULL,
+  `DETAIL_TEXT` longtext COLLATE utf8_unicode_ci,
+  `DETAIL_TEXT_TYPE` varchar(4) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `SEARCHABLE_CONTENT` text COLLATE utf8_unicode_ci,
+  `WF_STATUS_ID` int(18) DEFAULT '1',
+  `WF_PARENT_ELEMENT_ID` int(11) DEFAULT NULL,
+  `WF_NEW` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `WF_LOCKED_BY` int(18) DEFAULT NULL,
+  `WF_DATE_LOCK` datetime DEFAULT NULL,
+  `WF_COMMENTS` text COLLATE utf8_unicode_ci,
+  `IN_SECTIONS` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `XML_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CODE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TAGS` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `WF_LAST_HISTORY_ID` int(11) DEFAULT NULL,
+  `SHOW_COUNTER` int(18) DEFAULT NULL,
+  `SHOW_COUNTER_START` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock_element_1` (`IBLOCK_ID`,`IBLOCK_SECTION_ID`),
+  KEY `ix_iblock_element_4` (`IBLOCK_ID`,`XML_ID`,`WF_PARENT_ELEMENT_ID`),
+  KEY `ix_iblock_element_3` (`WF_PARENT_ELEMENT_ID`),
+  KEY `ix_iblock_element_code` (`IBLOCK_ID`,`CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_element`
+--
+
+LOCK TABLES `site_checker_b_iblock_element` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_element_lock`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_element_lock`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_element_lock` (
+  `IBLOCK_ELEMENT_ID` int(11) NOT NULL,
+  `DATE_LOCK` datetime DEFAULT NULL,
+  `LOCKED_BY` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`IBLOCK_ELEMENT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_element_lock`
+--
+
+LOCK TABLES `site_checker_b_iblock_element_lock` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_lock` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_lock` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_element_property`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_element_property`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_element_property` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IBLOCK_PROPERTY_ID` int(11) NOT NULL,
+  `IBLOCK_ELEMENT_ID` int(11) NOT NULL,
+  `VALUE` text COLLATE utf8_unicode_ci NOT NULL,
+  `VALUE_TYPE` char(4) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `VALUE_ENUM` int(11) DEFAULT NULL,
+  `VALUE_NUM` decimal(18,4) DEFAULT NULL,
+  `DESCRIPTION` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock_element_property_1` (`IBLOCK_ELEMENT_ID`,`IBLOCK_PROPERTY_ID`),
+  KEY `ix_iblock_element_property_2` (`IBLOCK_PROPERTY_ID`),
+  KEY `ix_iblock_element_prop_enum` (`VALUE_ENUM`,`IBLOCK_PROPERTY_ID`),
+  KEY `ix_iblock_element_prop_num` (`VALUE_NUM`,`IBLOCK_PROPERTY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_element_property`
+--
+
+LOCK TABLES `site_checker_b_iblock_element_property` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_property` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_property` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_element_right`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_element_right`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_element_right` (
+  `IBLOCK_ID` int(11) NOT NULL,
+  `SECTION_ID` int(11) NOT NULL,
+  `ELEMENT_ID` int(11) NOT NULL,
+  `RIGHT_ID` int(11) NOT NULL,
+  `IS_INHERITED` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`RIGHT_ID`,`ELEMENT_ID`,`SECTION_ID`),
+  KEY `ix_b_iblock_element_right_1` (`ELEMENT_ID`,`IBLOCK_ID`),
+  KEY `ix_b_iblock_element_right_2` (`IBLOCK_ID`,`RIGHT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_element_right`
+--
+
+LOCK TABLES `site_checker_b_iblock_element_right` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_right` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_element_right` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_fields`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_fields`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_fields` (
+  `IBLOCK_ID` int(18) NOT NULL,
+  `FIELD_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `IS_REQUIRED` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DEFAULT_VALUE` longtext COLLATE utf8_unicode_ci,
+  PRIMARY KEY (`IBLOCK_ID`,`FIELD_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_fields`
+--
+
+LOCK TABLES `site_checker_b_iblock_fields` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_fields` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_fields` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_group`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_group` (
+  `IBLOCK_ID` int(11) NOT NULL,
+  `GROUP_ID` int(11) NOT NULL,
+  `PERMISSION` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  UNIQUE KEY `ux_iblock_group_1` (`IBLOCK_ID`,`GROUP_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_group`
+--
+
+LOCK TABLES `site_checker_b_iblock_group` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_group` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_messages`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_messages` (
+  `IBLOCK_ID` int(18) NOT NULL,
+  `MESSAGE_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `MESSAGE_TEXT` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`IBLOCK_ID`,`MESSAGE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_messages`
+--
+
+LOCK TABLES `site_checker_b_iblock_messages` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_messages` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_property`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_property`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_property` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TIMESTAMP_X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `IBLOCK_ID` int(11) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `SORT` int(11) NOT NULL DEFAULT '500',
+  `CODE` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DEFAULT_VALUE` text COLLATE utf8_unicode_ci,
+  `PROPERTY_TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'S',
+  `ROW_COUNT` int(11) NOT NULL DEFAULT '1',
+  `COL_COUNT` int(11) NOT NULL DEFAULT '30',
+  `LIST_TYPE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'L',
+  `MULTIPLE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `XML_ID` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FILE_TYPE` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `MULTIPLE_CNT` int(11) DEFAULT NULL,
+  `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `LINK_IBLOCK_ID` int(18) DEFAULT NULL,
+  `WITH_DESCRIPTION` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `SEARCHABLE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `FILTRABLE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `IS_REQUIRED` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `VERSION` int(11) NOT NULL DEFAULT '1',
+  `USER_TYPE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `USER_TYPE_SETTINGS` text COLLATE utf8_unicode_ci,
+  `HINT` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock_property_1` (`IBLOCK_ID`),
+  KEY `ix_iblock_property_3` (`LINK_IBLOCK_ID`),
+  KEY `ix_iblock_property_2` (`CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_property`
+--
+
+LOCK TABLES `site_checker_b_iblock_property` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_property` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_property` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_property_enum`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_property_enum`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_property_enum` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PROPERTY_ID` int(11) NOT NULL,
+  `VALUE` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `DEF` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `SORT` int(11) NOT NULL DEFAULT '500',
+  `XML_ID` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ux_iblock_property_enum` (`PROPERTY_ID`,`XML_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_property_enum`
+--
+
+LOCK TABLES `site_checker_b_iblock_property_enum` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_property_enum` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_property_enum` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_right`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_right`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_right` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IBLOCK_ID` int(11) NOT NULL,
+  `GROUP_CODE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ENTITY_TYPE` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `ENTITY_ID` int(11) NOT NULL,
+  `DO_INHERIT` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `TASK_ID` int(11) NOT NULL,
+  `OP_SREAD` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `OP_EREAD` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  `XML_ID` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_b_iblock_right_iblock_id` (`IBLOCK_ID`,`ENTITY_TYPE`,`ENTITY_ID`),
+  KEY `ix_b_iblock_right_group_code` (`GROUP_CODE`,`IBLOCK_ID`),
+  KEY `ix_b_iblock_right_entity` (`ENTITY_ID`,`ENTITY_TYPE`),
+  KEY `ix_b_iblock_right_op_eread` (`ID`,`OP_EREAD`,`GROUP_CODE`),
+  KEY `ix_b_iblock_right_op_sread` (`ID`,`OP_SREAD`,`GROUP_CODE`),
+  KEY `ix_b_iblock_right_task_id` (`TASK_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_right`
+--
+
+LOCK TABLES `site_checker_b_iblock_right` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_right` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_right` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_rss`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_rss`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_rss` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `IBLOCK_ID` int(11) NOT NULL,
+  `NODE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `NODE_VALUE` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_rss`
+--
+
+LOCK TABLES `site_checker_b_iblock_rss` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_rss` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_rss` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_section`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_section`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_section` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TIMESTAMP_X` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `MODIFIED_BY` int(18) DEFAULT NULL,
+  `DATE_CREATE` datetime DEFAULT NULL,
+  `CREATED_BY` int(18) DEFAULT NULL,
+  `IBLOCK_ID` int(11) NOT NULL,
+  `IBLOCK_SECTION_ID` int(11) DEFAULT NULL,
+  `ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `GLOBAL_ACTIVE` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `SORT` int(11) NOT NULL DEFAULT '500',
+  `NAME` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `PICTURE` int(18) DEFAULT NULL,
+  `LEFT_MARGIN` int(18) DEFAULT NULL,
+  `RIGHT_MARGIN` int(18) DEFAULT NULL,
+  `DEPTH_LEVEL` int(18) DEFAULT NULL,
+  `DESCRIPTION` text COLLATE utf8_unicode_ci,
+  `DESCRIPTION_TYPE` char(4) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'text',
+  `SEARCHABLE_CONTENT` text COLLATE utf8_unicode_ci,
+  `CODE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `XML_ID` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `TMP_ID` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DETAIL_PICTURE` int(18) DEFAULT NULL,
+  `SOCNET_GROUP_ID` int(18) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `ix_iblock_section_1` (`IBLOCK_ID`,`IBLOCK_SECTION_ID`),
+  KEY `ix_iblock_section_depth_level` (`IBLOCK_ID`,`DEPTH_LEVEL`),
+  KEY `ix_iblock_section_left_margin` (`IBLOCK_ID`,`LEFT_MARGIN`,`RIGHT_MARGIN`),
+  KEY `ix_iblock_section_right_margin` (`IBLOCK_ID`,`RIGHT_MARGIN`,`LEFT_MARGIN`),
+  KEY `ix_iblock_section_code` (`IBLOCK_ID`,`CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_section`
+--
+
+LOCK TABLES `site_checker_b_iblock_section` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_section_element`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_section_element`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_section_element` (
+  `IBLOCK_SECTION_ID` int(11) NOT NULL,
+  `IBLOCK_ELEMENT_ID` int(11) NOT NULL,
+  `ADDITIONAL_PROPERTY_ID` int(18) DEFAULT NULL,
+  UNIQUE KEY `ux_iblock_section_element` (`IBLOCK_SECTION_ID`,`IBLOCK_ELEMENT_ID`,`ADDITIONAL_PROPERTY_ID`),
+  KEY `UX_IBLOCK_SECTION_ELEMENT2` (`IBLOCK_ELEMENT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_section_element`
+--
+
+LOCK TABLES `site_checker_b_iblock_section_element` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_element` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_element` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_section_property`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_section_property`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_section_property` (
+  `IBLOCK_ID` int(11) NOT NULL,
+  `SECTION_ID` int(11) NOT NULL,
+  `PROPERTY_ID` int(11) NOT NULL,
+  `SMART_FILTER` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DISPLAY_TYPE` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `DISPLAY_EXPANDED` char(1) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `FILTER_HINT` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`IBLOCK_ID`,`SECTION_ID`,`PROPERTY_ID`),
+  KEY `ix_b_iblock_section_property_1` (`PROPERTY_ID`),
+  KEY `ix_b_iblock_section_property_2` (`SECTION_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_section_property`
+--
+
+LOCK TABLES `site_checker_b_iblock_section_property` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_property` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_property` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_section_right`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_section_right`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_section_right` (
+  `IBLOCK_ID` int(11) NOT NULL,
+  `SECTION_ID` int(11) NOT NULL,
+  `RIGHT_ID` int(11) NOT NULL,
+  `IS_INHERITED` char(1) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`RIGHT_ID`,`SECTION_ID`),
+  KEY `ix_b_iblock_section_right_1` (`SECTION_ID`,`IBLOCK_ID`),
+  KEY `ix_b_iblock_section_right_2` (`IBLOCK_ID`,`RIGHT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_section_right`
+--
+
+LOCK TABLES `site_checker_b_iblock_section_right` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_right` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_section_right` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_sequence`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_sequence`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_sequence` (
+  `IBLOCK_ID` int(18) NOT NULL,
+  `CODE` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `SEQ_VALUE` int(11) DEFAULT NULL,
+  PRIMARY KEY (`IBLOCK_ID`,`CODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_sequence`
+--
+
+LOCK TABLES `site_checker_b_iblock_sequence` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_sequence` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_sequence` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_site`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_site`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_site` (
+  `IBLOCK_ID` int(18) NOT NULL,
+  `SITE_ID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`IBLOCK_ID`,`SITE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_site`
+--
+
+LOCK TABLES `site_checker_b_iblock_site` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_site` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_site` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_type`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_type`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_type` (
+  `ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `SECTIONS` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Y',
+  `EDIT_FILE_BEFORE` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `EDIT_FILE_AFTER` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `IN_RSS` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'N',
+  `SORT` int(18) NOT NULL DEFAULT '500',
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_type`
+--
+
+LOCK TABLES `site_checker_b_iblock_type` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_type` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_checker_b_iblock_type_lang`
+--
+
+DROP TABLE IF EXISTS `site_checker_b_iblock_type_lang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `site_checker_b_iblock_type_lang` (
+  `IBLOCK_TYPE_ID` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `LID` char(2) COLLATE utf8_unicode_ci NOT NULL,
+  `NAME` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `SECTION_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ELEMENT_NAME` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_checker_b_iblock_type_lang`
+--
+
+LOCK TABLES `site_checker_b_iblock_type_lang` WRITE;
+/*!40000 ALTER TABLE `site_checker_b_iblock_type_lang` DISABLE KEYS */;
+/*!40000 ALTER TABLE `site_checker_b_iblock_type_lang` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
