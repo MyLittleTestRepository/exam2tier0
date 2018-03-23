@@ -1,4 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+	die(); ?>
 <?
 /** @var array $arParams */
 /** @var array $arResult */
@@ -32,10 +33,7 @@ foreach ($arResult['ITEMS'] as $key => $arItem)
 
 	//запрашиваем данные из таблицы
 	$BDRes = CIBlockElement::GetList('', $arFilter, $arGroupBy);
-	while ($Item=$BDRes->GetNext('',false))
-		$arResult['SECTION_MATERIALS'][$Item['PROPERTY_MATERIAL_VALUE']]=$Item['CNT'];
-
-	//Кешируем
-	$this->__component->setResultCacheKeys('SECTION_MATERIALS');
+	while ($Item = $BDRes->GetNext('', false))
+		$arResult['SECTION_MATERIALS'][$Item['PROPERTY_MATERIAL_VALUE']] = $Item['CNT'];
 }
 ?>

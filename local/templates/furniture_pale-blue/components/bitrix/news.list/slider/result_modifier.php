@@ -63,7 +63,4 @@ while ($arRes = $BDRes->GetNextElement('', false))
 	$file = CFile::GetFileArray($arTemp['DETAIL_PICTURE']);
 	$arTemp['PREVIEW_PICTURE']['SRC'] = CFile::ResizeImageGet($file, $arSize)['src'];
 }
-
-//кэшируем результат
-$this->__component->setResultCacheKeys(['CATALOG']);
 ?>
