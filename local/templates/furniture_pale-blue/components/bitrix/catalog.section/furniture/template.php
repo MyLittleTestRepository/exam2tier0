@@ -4,6 +4,18 @@
 	<?=$arResult["NAV_STRING"]?><br />
 <?endif;?>
 
+<?if(!empty($arResult['SECTION_MATERIALS'])):?>
+<?$this->SetViewTarget('catalog_materials');?>
+    <div class="content-block">
+        <div class="content-block-inner">
+            <b>Доступны товары из:</b></br>
+            <?foreach ($arResult['SECTION_MATERIALS'] as $key=>$value):?>
+            <?=$key?>: <?=$value?> шт</br>
+            <?endforeach;?>
+        </div>
+    </div>
+<?$this->EndViewTarget()?>
+<?endif;?>
 
 <?
 foreach($arResult["ITEMS"] as $cell=>$arElement):

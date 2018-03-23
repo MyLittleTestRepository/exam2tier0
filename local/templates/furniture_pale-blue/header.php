@@ -110,7 +110,7 @@ $APPLICATION->IncludeFile(
 	array(
 		"ACTIVE_COMPONENT" => "Y"
 	)
-);?>
+);?><?$APPLICATION->ShowViewContent('catalog_materials')?>
 				<div class="content-block">
 					<div class="content-block-inner">
 						<h3><?=GetMessage('CFT_NEWS')?></h3>
@@ -154,4 +154,5 @@ $APPLICATION->IncludeFile(
 			</div>
 		
 			<div id="workarea">
+				<?$APPLICATION->ShowViewContent('news_detail_date')?>
 				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
