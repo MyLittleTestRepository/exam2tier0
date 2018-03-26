@@ -3,7 +3,8 @@
 <? /** @var array $arParams */ ?>
 <? $APPLICATION->IncludeComponent("custom:list.vacancy",
                                   "href",
-                                  Array("IBLOCK_ID"   => $arParams['IBLOCK_ID'],    // Инфоблок
-                                        "IBLOCK_TYPE" => $arParams['IBLOCK_TYPE'],    // Тип инфоблока
-                                  ),
+                                  ["IBLOCK_ID"   => $arParams['IBLOCK_ID'],    // Инфоблок
+                                   "IBLOCK_TYPE" => $arParams['IBLOCK_TYPE'],    // Тип инфоблока
+                                   "CACHE_TIME"  => $arParams['CACHE_TIME'],
+                                   "CACHE_TYPE"  => $arParams['CACHE_TYPE'],],
                                   $component); ?>
