@@ -4,7 +4,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 
 $arComponentDescription = ["NAME"        => GetMessage("COMPONENT_NAME"),
                            "DESCRIPTION" => GetMessage("COMPONENT_DESCRIPTION"),
-                           "ICON"        => "/images/cat_list.gif",
+                           "ICON"        => "/images/aphisa.gif",
+                           "COMPLEX"     => "Y",
                            "PATH"        => ["ID"   => "additional",
                                              "NAME" => GetMessage("PATH_NAME")]];
 
