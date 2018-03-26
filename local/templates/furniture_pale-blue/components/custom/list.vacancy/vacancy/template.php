@@ -22,8 +22,19 @@ $this->setFrameMode(true);
             <div>
                 <ul>
 					<? foreach ($section['ITEMS'] as $itemId): ?>
-                        <li><a href="<?=$arResult['ITEMS'][$itemId]['DETAIL_PAGE_URL']?>"><?=
-                                $arResult['ITEMS'][$itemId]['NAME'] ?></a></li>
+						<?
+						$this->AddEditAction($itemId,
+						                     $arResult['ITEMS'][$itemId]['EDIT_LINK'],
+						                     CIBlock::GetArrayByID($arResult['ITEMS'][$itemId]["IBLOCK_ID"],
+						                                           "ELEMENT_EDIT"));
+						$this->AddDeleteAction($itemId,
+						                       $arResult['ITEMS'][$itemId]['DELETE_LINK'],
+						                       CIBlock::GetArrayByID($arResult['ITEMS'][$itemId]["IBLOCK_ID"], "ELEMENT_DELETE"),
+						                       array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+						?>
+                        <li id="<?=$this->GetEditAreaId($itemId);?>">
+                            <a href="<?= $arResult['ITEMS'][$itemId]['DETAIL_PAGE_URL'] ?>"><?= $arResult['ITEMS'][$itemId]['NAME'] ?></a>
+                        </li>
 					<? endforeach; ?>
                 </ul>
             </div>

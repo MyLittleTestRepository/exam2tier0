@@ -46,8 +46,19 @@ if ($this->startResultCache())
 
 		while ($item = $rsIBlock->GetNext('', false))
 		{
-			$arResult['ITEMS'][$item['ID']] = $item;
-			$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']]['ITEMS'][] = $item['ID'];
+			$arResult['ITEMS'][$item['ID']] = $item; //add item
+			$arResult['SECTIONS'][$item['IBLOCK_SECTION_ID']]['ITEMS'][] = $item['ID']; //add item id to sections
+
+			//hermitage
+			{
+				$arButtons = CIBlock::GetPanelButtons($item["IBLOCK_ID"],
+				                                      $item["ID"],
+				                                      $item['IBLOCK_SECTION_ID'],
+				                                      array("SECTION_BUTTONS" => false, "SESSID" => false));
+				$arResult['ITEMS'][$item['ID']]["EDIT_LINK"] = $arButtons["edit"]["edit_element"]["ACTION_URL"];
+				$arResult['ITEMS'][$item['ID']]["DELETE_LINK"] = $arButtons["edit"]["delete_element"]["ACTION_URL"];
+				$arResult["LAST_ITEM_IBLOCK_ID"] = $item["IBLOCK_ID"];
+			}
 		}
 
 		foreach ($arResult['SECTIONS'] as $section_id => $value)
@@ -60,6 +71,26 @@ if ($this->startResultCache())
 	//cache keys
 	$this->setResultCacheKeys([]);
 
+	//hermitage
+	{
+		$this->setResultCacheKeys(array("LAST_ITEM_IBLOCK_ID",));
+	}
+
 	//component template
 	$this->includeComponentTemplate();
+}
+
+//hermitage section
+{
+	if ($arResult["LAST_ITEM_IBLOCK_ID"] > 0
+	    && $USER->IsAuthorized()
+	    && $APPLICATION->GetShowIncludeAreas()
+	    && CModule::IncludeModule("iblock"))
+	{
+		$arButtons = CIBlock::GetPanelButtons($arResult["LAST_ITEM_IBLOCK_ID"],
+		                                      0,
+		                                      0,
+		                                      array("SECTION_BUTTONS" => false));
+		$this->addIncludeAreaIcons(CIBlock::GetComponentMenu($APPLICATION->GetPublicShowMode(), $arButtons));
+	}
 }
