@@ -8,7 +8,7 @@
 <?$this->SetViewTarget('catalog_materials');?>
     <div class="content-block">
         <div class="content-block-inner">
-            <b>Доступны товары из:</b></br>
+            <b><?= GetMessage("TOVAR") ?></b></br>
             <?foreach ($arResult['SECTION_MATERIALS'] as $key=>$value):?>
             <?=$key?>: <?=$value?> шт</br>
             <?endforeach;?>

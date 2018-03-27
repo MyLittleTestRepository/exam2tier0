@@ -1,6 +1,8 @@
 <? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die(); ?>
-<? /** @var array $arParams */?>
+<? /** @var array $arParams */
+if (!CModule::IncludeModule('iblock'))
+	return;?>
 <? $APPLICATION->IncludeComponent("bitrix:form.result.new",
                                   "",
                                   Array('VACANT_ID'   => $arResult["VARIABLES"]["ELEMENT_ID"],

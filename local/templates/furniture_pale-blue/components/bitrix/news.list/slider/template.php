@@ -46,7 +46,7 @@ $this->setFrameMode(true);
                         <a href="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["DETAIL_PAGE_URL"]
                         ?>" title="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["NAME"] ?> "><img
                                     src="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["PREVIEW_PICTURE"]["SRC"] ?>" alt=""/></a>
-                        <h2><a href="<?= $arItem["PROPERTIES"]['LINK']['VALUE'] ?>" title="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["NAME"] ?> "><? echo $arItem["NAME"]
+                        <h2><a href="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["DETAIL_PAGE_URL"] ?>" title="<?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["NAME"] ?> "><? echo $arItem["NAME"]
                                 ?></a></h2>
                         <?if(false):?><p><?=$arItem["PREVIEW_TEXT"]?></p><?endif;?>
                         <p><?= $arResult["CATALOG"][$arItem["PROPERTIES"]["LINK"]["VALUE"]]["NAME"] ?> всего
