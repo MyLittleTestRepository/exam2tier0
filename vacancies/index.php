@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Вакансии");
-?>Text here....<?$APPLICATION->IncludeComponent(
+?><?$APPLICATION->IncludeComponent(
 	"custom:vacancy", 
 	".default", 
 	array(
@@ -9,7 +9,10 @@ $APPLICATION->SetTitle("Вакансии");
 		"CACHE_TYPE" => "A",
 		"IBLOCK_ID" => "4",
 		"IBLOCK_TYPE" => "vacancies",
-		"COMPONENT_TEMPLATE" => ".default"
+		"SEF_MODE" => "N",
+		"COMPONENT_TEMPLATE" => ".default",
+		"SEF_FOLDER" => "/vacancies/",
+		"FORM_ID" => "1"
 	),
 	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

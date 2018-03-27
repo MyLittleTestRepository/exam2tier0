@@ -3,6 +3,8 @@
 
 if (!CModule::IncludeModule('iblock'))
 	return;
+if (!CModule::IncludeModule('form'))
+	return;
 
 $arIblockTypes = CIBlockParameters::GetIBlockTypes();
 
@@ -16,6 +18,13 @@ if (isset($arCurrentValues['IBLOCK_TYPE']))
 	}
 }
 
+$arFormIds = [];
+$rsForms = CForm::GetList($by = "s_id", $order = "asc", [], $is_filtered);
+while ($arForm = $rsForms->GetNext('', false))
+{
+	$arFormIds[$arForm['ID']] = '[' . $arForm['ID'] . '] ' . $arForm['NAME'];
+}
+
 $arComponentParameters = ['GROUPS'     => ["BASE" => ["NAME" => GetMessage('BASE'),
                                                       "SORT" => "10",]],
                           'PARAMETERS' => ["IBLOCK_TYPE" => ["PARENT"  => "BASE",
@@ -27,7 +36,20 @@ $arComponentParameters = ['GROUPS'     => ["BASE" => ["NAME" => GetMessage('BASE
                                                              "NAME"   => GetMessage('IBLOCK_ID'),
                                                              "TYPE"   => "LIST",
                                                              "VALUES" => $arIblockIds,],
-                                           "CACHE_TIME"  => ["DEFAULT" => 36000000]]
+                                           "FORM_ID"     => ["PARENT" => "BASE",
+                                                             "NAME"   => GetMessage('FORM_ID'),
+                                                             "TYPE"   => "LIST",
+                                                             "VALUES" => $arFormIds,],
+                                           "CACHE_TIME"  => ["DEFAULT" => 36000000],
+                                           "SEF_MODE"    => ["vacancies" => ["NAME"      => GetMessage("VACANCIES"),
+                                                                             "DEFAULT"   => "",
+                                                                             "VARIABLES" => [],],
+                                                             "vacancy"   => ["NAME"      => GetMessage("VACANCY"),
+                                                                             "DEFAULT"   => "#ELEMENT_ID#/",
+                                                                             "VARIABLES" => ["ELEMENT_ID"],],
+                                                             "resume"    => ["NAME"      => GetMessage("RESUME"),
+                                                                             "DEFAULT"   => "#ELEMENT_ID#/resume/",
+                                                                             "VARIABLES" => ["ELEMENT_ID"],],],]
 
 ];
 ?>
