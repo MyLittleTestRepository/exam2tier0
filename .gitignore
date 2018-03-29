@@ -1,7 +1,10 @@
 /.git
 /.idea
-/bitrix
+/bitrix/*
 /upload/tmp
 /upload/resize_cache
 /**/test.php
 /*.log
+!/bitrix/wizards/
+/bitrix/wizards/*
+!/bitrix/wizards/custom/
